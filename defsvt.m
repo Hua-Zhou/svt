@@ -1,4 +1,4 @@
-function[U,S,V,flag] = defsvt_v7(A,varargin)
+function[U,S,V,flag] = defsvt(A,varargin)
 % Singular value thresholding based on deflation method
 %
 % USAGE:
@@ -8,7 +8,7 @@ function[U,S,V,flag] = defsvt_v7(A,varargin)
 % INPUT:
 %   A - m-by-n matrix or a function handle provided by user
 %   lambda - threshold (default: NaN)
-%   k - number of singular values to try (default: 5)
+%   k - number of singular values to try (default: 6)
 %   incre - increment of try after first k attemp (default: 3)
 %   m - dimension of row
 %   n - dimension of column
@@ -29,7 +29,7 @@ function[U,S,V,flag] = defsvt_v7(A,varargin)
 argin = inputParser;
 argin.addRequired('A');
 argin.addParamValue('lambda',NaN);
-argin.addParamValue('k',5,@(x) x>0);
+argin.addParamValue('k',6,@(x) x>0);
 argin.addParamValue('incre',3,@(x) x>0);
 argin.addParamValue('m',NaN);
 argin.addParamValue('n',NaN);
@@ -37,18 +37,28 @@ argin.addParamValue('tol',eps,@(x) x>0);
 argin.addParamValue('maxit',300,@(x) x>0);
 argin.parse(A,varargin{:});
 
-%lambda=argin.Results.lambda;
 k = argin.Results.k;
 incre = argin.Results.incre;
 lambda = argin.Results.lambda;
 tol = argin.Results.tol;
 maxit = argin.Results.maxit;
 
+opts.tol = tol;
+opts.maxit = maxit;
+
 % Check input A type
-if isnumeric(A)
-    [m,n] = size(A);
-else
-    m = int8(argin.Results.m);
+if isnumeric(A) % If input A is a matrix
+    if isnan(lambda) % Call svds directly for non-thresholding matrix input 
+        if nargout<=1
+            U = svds(A,k,'L',opts);
+        else
+            [U,S,V,flag] = svds(A,k,'L',opts);
+        end
+        return
+    end
+    [m,n] = size(A); % Obtain the dimension from the matrix
+else % If input A is a function handle
+    m = int8(argin.Results.m); % User need to input the dimension
     n = int8(argin.Results.n);
     ism = isa(m,'integer') && (m>0);
     isn = isa(n,'integer') && (n>0);
@@ -57,7 +67,7 @@ else
     end
 end
 
-iter = min(m,n);
+iter = min(m,n); % Set maximum iteration number
 
 % Check validity of k 
 if (k>iter)
@@ -67,8 +77,8 @@ end
 
 % Check validity of lambda
 if ~(isnan(lambda))
-    if (isinf(lambda))
-        U = []; S = []; V = [];
+    if (isinf(lambda)) % Fast return for inf lambda
+        U = []; S = []; V = []; flag = 0;
         return
     else
         if ~(lambda>=0)
@@ -100,8 +110,6 @@ end
 w = [];  % Keep eigenvectors
 e = [];  % Keep eigenvalues 
 opts.issym = 1; % [zeros(n,n),A';zeros(m,m),A] is symmetric
-opts.tol = tol;
-opts.maxit = maxit;
 
 % Main loop for computing singular values sequentially
 while iter>0
@@ -118,7 +126,7 @@ while iter>0
     w = [w,eigvecs];
     e = [e;eigvals];
 
-    if (isnan(lambda))
+    if (isnan(lambda)) % Non-thresholding
         break
     end
     
