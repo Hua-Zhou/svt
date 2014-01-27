@@ -50,7 +50,7 @@ opts.maxit = maxit;
 if isnumeric(A) % If input A is a matrix
     if isnan(lambda) % Call svds directly for non-thresholding matrix input 
         if nargout<=1
-            U = svds(A,k,'L',opts);
+            U = diag(svds(A,k,'L',opts));
         else
             [U,S,V,flag] = svds(A,k,'L',opts);
         end
@@ -86,16 +86,18 @@ if ~(isnan(lambda))
         end
     end
 else
-    if nnz(A) == 0 % Fast return for zeros(m,n)
-        if nargout<=1
-            U = zeros(k,k);
-        else
-            U = eye(m,k);
-            S = zeros(k,k);
-            V = eye(n,k);
-            flag = 0;
+    if isnumeric(A)
+        if nnz(A) == 0 % Fast return for zeros(m,n)
+            if nargout<=1
+                U = zeros(k,k);
+            else
+                U = eye(m,k);
+                S = zeros(k,k);
+                V = eye(n,k);
+                flag = 0;
+            end
+            return
         end
-        return
     end
 end
 
