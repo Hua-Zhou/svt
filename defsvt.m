@@ -48,7 +48,7 @@ opts.maxit = maxit;
 
 % Check input A type
 if isnumeric(A) % If input A is a matrix
-    if isnan(lambda) % Call svds directly for non-thresholding matrix input 
+    if isnan(lambda) % Call svds directly for non-thresholding purpose 
         if nargout<=1
             U = diag(svds(A,k,'L',opts));
         else
@@ -58,8 +58,8 @@ if isnumeric(A) % If input A is a matrix
     end
     [m,n] = size(A); % Obtain the dimension from the matrix
 else % If input A is a function handle
-    m = int8(argin.Results.m); % User need to input the dimension
-    n = int8(argin.Results.n);
+    m = int32(argin.Results.m); % User need to input the dimension
+    n = int32(argin.Results.n); % Dimension should be a positive integer
     ism = isa(m,'integer') && (m>0);
     isn = isa(n,'integer') && (n>0);
     if ~(ism && isn) % Check validity of input dimensions 
