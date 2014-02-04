@@ -139,7 +139,7 @@ end
 % Subfunction for function handle of eigs 
 function mv = matvec(v)
     if isnumeric(A)
-        mv = [A'*v(n+1:end);A*v(1:n)];
+        mv = [(v(n+1:end)'*A)';A*v(1:n)];
     else
         At = feval(A,v(n+1:end),true);
         Af = feval(A,v(1:n),false);
