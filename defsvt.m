@@ -149,7 +149,7 @@ function mv = matvec(v)
     if isempty(e)
         return;
     else
-        mv = mv-w*(e.*(w'*v)); % Deflation for eigen problem
+        mv = mv-w*(e.*(v'*w)'); % Deflation for eigen problem
     end
 end
 
