@@ -133,7 +133,8 @@ while iter>0
     end
     
     iter = iter-k;
-    k = min(incre,iter);    
+    k = min(incre,iter); 
+    incre = incre*2;
 end
 
 % Subfunction for function handle of eigs 
