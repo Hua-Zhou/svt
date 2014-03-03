@@ -5,15 +5,27 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   [U,S,V,flag] = defsvt(A,'PARAM1',val1,'PARAM2',val2...)
 %   S = defsvt(A,'PARAM1',val1,'PARAM2',val2...)
 %
+%   Defsvt computes the singular values exceeding user defined threshold
+%   and associated singular vectors. It can also be used for top singular
+%   value decomposition, handle sparse matrix and other sturctue matrix for
+%   both two purposes. In the later case, user can input a function handle
+%   instead of the data matrix to utilize the matrix structue.
+%    
+%   Available parameter name/value pairs are:      
+%   'lambda': threshold (default: NaN). When the value is NaN, defsvt
+%   implements singular value decompositon.
+%   'k': number of singular values to try (default: 6)
+%   'incre': increment of try after first k attemp (default: 5)
+%   'm': dimension of row. Only needed for function handle input.
+%   'n': dimension of column. Only needed for function handle input.
+%   'tol': eigs convergence tolerance (default: eps)
+%   'maxit': maximum number of eigs iterations (default: 300)
+%   'deflation': whether to use deflation method (default: true). If
+%   specifying the option as false, an iterative method is applied for
+%   thresholding.
+%
 % INPUT:
 %   A - m-by-n matrix or a function handle provided by user
-%   lambda - threshold (default: NaN)
-%   k - number of singular values to try (default: 6)
-%   incre - increment of try after first k attemp (default: 3)
-%   m - dimension of row
-%   n - dimension of column
-%   tol - eigs convergence tolerance (default: eps)
-%   maxit - maximum number of eigs iterations (default: 300)
 %
 % OUTPUT:
 %   U - left singular vectors
@@ -21,8 +33,30 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   V - right singular vectors
 %   flag - if 0, iterative eigs converged; 1, eigs not converged
 %
-% COPYRIGHT: North Carolina State University
-% AUTHOR: Cai Li, Hua Zhou 
+% Examples:
+%  [U,S,V] = defsvt(A) - Singular value decomposition for first 6 singular
+%  values.
+%  [U,S,V] = defsvt(A,'k',15) - Singular value decomposition for first 15
+%  singular values.
+%  [U,S,V] = defsvt(A,'lambda',10) - Singular value thresholding, only
+%  compute the singular values exceeding 10 by applying deflation method.
+%  [U,S,V] = defsvt(A,'lambda',10,'deflation',false) - Singular value
+%  thresholding, only compute the singular values exceeding 10 by applying
+%  iterative method. 
+%  [U,S,V] = defsvt(Afun,'k',15,'m',1000,'n',1000) - Singular value
+%  decomposition for first 15 singular values, input is a function handle,
+%  and the dimension of the original data matrix is 1000-by-1000.
+%  [U,S,V] = defsvt(Afun,'lambda',10,'m',1000,'n',1000) - Singular value
+%  thresholding, only compute the singular values exceeding 10 by applying
+%  deflation method. Input is a function handle, and the dimension of the
+%  original data matrix is 1000-by-1000.
+%  [U,S,V] = defsvt(Afun,'lambda',10,'m',1000,'n',1000,'deflation',false) -
+%  Singular value thresholding, only compute the singular values exceeding
+%  10 by applying iterative method. Input is a function handle, and the
+%  dimension of the original data matrix is 1000-by-1000.
+%
+% COPYRIGHT: North Carolina State University 
+% AUTHOR: Cai Li, Hua Zhou
 % Email: cli9@ncsu.edu
 
 % Parse input
@@ -30,11 +64,12 @@ argin = inputParser;
 argin.addRequired('A');
 argin.addParamValue('lambda',NaN);
 argin.addParamValue('k',6,@(x) x>0);
-argin.addParamValue('incre',3,@(x) x>0);
+argin.addParamValue('incre',5,@(x) x>0);
 argin.addParamValue('m',NaN);
 argin.addParamValue('n',NaN);
 argin.addParamValue('tol',eps,@(x) x>0);
 argin.addParamValue('maxit',300,@(x) x>0);
+argin.addParamValue('deflation',true,@islogical)
 argin.parse(A,varargin{:});
 
 k = argin.Results.k;
@@ -42,13 +77,14 @@ incre = argin.Results.incre;
 lambda = argin.Results.lambda;
 tol = argin.Results.tol;
 maxit = argin.Results.maxit;
+def = argin.Results.deflation;
 
 opts.tol = tol;
 opts.maxit = maxit;
 
 % Check input A type
 if isnumeric(A) % If input A is a matrix
-    if isnan(lambda) % Call svds directly for non-thresholding purpose 
+    if isnan(lambda) % Call svds directly for decomposition purpose 
         if nargout<=1
             U = diag(svds(A,k,'L',opts));
         else
@@ -101,7 +137,7 @@ else
     end
 end
 
-% Check validity of incre
+% Check validity of increment
 if ~(isnan(lambda))
     if (incre>iter-k)
         incre = iter-k;
@@ -114,43 +150,59 @@ e = [];  % Keep eigenvalues
 opts.issym = 1; % [zeros(n,n),A';zeros(m,m),A] is symmetric
 
 % Main loop for computing singular values sequentially
-while iter>0
-    [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n),double(k),'la',opts); % Sort eigs output
-    eigvals = diag(eigvals);
+while iter>0 
+    [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n),double(k),'la',opts); 
+    eigvals = diag(eigvals); % Eigs output sorted
     if ~(isnan(lambda))
         i = find(eigvals<=lambda,1); % Thresholding
-        if ~isempty(i)
-            w = [w,eigvecs(:,1:i-1)];
-            e = [e;eigvals(1:i-1)];
+        if ~isempty(i) % Threshold found
+            if def
+                w = [w,eigvecs(:,1:i-1)];
+                e = [e;eigvals(1:i-1)];         
+            else
+                w = eigvecs(:,1:i-1);
+                e = eigvals(1:i-1);
+            end
             break
         end
     end
-    w = [w,eigvecs];
-    e = [e;eigvals];
+    if def % Deflation method adds the results every iteration
+        w = [w,eigvecs];
+        e = [e;eigvals];
+    else   % Iterative method overwrites the results every iteration 
+        w = eigvecs;
+        e = eigvals;
+    end
 
-    if (isnan(lambda)) % Non-thresholding
+    if (isnan(lambda)) % For decomposition
         break
     end
     
     iter = iter-k;
-    k = min(incre,iter); 
-    incre = incre*2;
+    if def % Increment based on deflation method
+        k = min(incre,iter);
+    else   % Increment based on iterative method
+        k = min(k+incre,iter);
+    end
+    incre = incre*2; % Non-constant increment
 end
 
 % Subfunction for function handle of eigs 
 function mv = matvec(v)
-    if isnumeric(A)
-        mv = [(v(n+1:end)'*A)';A*v(1:n)];
-    else
-        At = feval(A,v(n+1:end),true);
+    if isnumeric(A) % Matrix case
+        mv = [(v(n+1:end)'*A)';A*v(1:n)]; % Avoid transpose of big matrix
+    else  % Function handle case
+        At = feval(A,v(n+1:end),true); 
         Af = feval(A,v(1:n),false);
         mv = [At;Af];
     end 
     
-    if isempty(e)
-        return;
-    else
-        mv = mv-w*(e.*(v'*w)'); % Deflation for eigen problem
+    if def % Deflation method
+        if isempty(e)
+            return;
+        else
+            mv = mv-w*(e.*(v'*w)'); % Deflation for eigen problem
+        end
     end
 end
 
