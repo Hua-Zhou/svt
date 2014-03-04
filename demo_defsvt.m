@@ -91,7 +91,7 @@ s = RandStream('mt19937ar','Seed',2014);
 RandStream.setGlobalStream(s);
 
 %%
-% read in sparse matrices downloaded from The University of Florida Sparse
+% Read in sparse matrices downloaded from The University of Florida Sparse
 % Matrix Collection
 data = load('mhd4800b.mat');
 mat = data.mhd4800b;
