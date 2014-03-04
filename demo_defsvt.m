@@ -1,173 +1,230 @@
+function[] = demo_defsvt
 %% Singular value decomposition for sparse matrix
 
 clear;
-% reset random seed
+% Reset random seed
 s = RandStream('mt19937ar','Seed',2014);
 RandStream.setGlobalStream(s);
 
 %%
-% read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection 
-load('bfwb398.mat');
-
-% load('cryg10000.mat');
-% load('af23569.mat');
-
-mat = bfwb398;
-fprintf('Size of bfwb398: ');
-disp(size(mat));
-fprintf('Sparsity of bfwb398: ');
-disp(1-nnz(mat)/(size(mat,1)*size(mat,2))) % sparsity
+% Read in sparse matrices downloaded from The University of Florida Sparse
+% Matrix Collection
+data = load('tols1090.mat');
+mat = data.tols1090;
 
 %%
-% comparison with svds
-fprintf('Run time of defsvt: ');
+% Size of matrix
+disp(size(mat));
+
+%%
+% Sparsity of matrix
+disp(1-nnz(mat)/(size(mat,1)*size(mat,2))); 
+
+%%
+% Run time of defsvt for top 10 singular value decomposition: 
 tic;
 [u,s,v] = defsvt(mat,'k',10);
 disp(toc);
 
-fprintf('Run time of svds: ');
+%%
+% Run time of svds for top 10 singular value decomposition: 
 tic;
 [su,ss,sv] = svds(mat,10);
 disp(toc);
 
-fprintf('Accuracy of solutions provied by defsvt');
-disp(norm(mat-u*s*v','fro')/norm(mat,'fro')); % accuracy
-fprintf('Accuracy of solutions provied by svds');
+%%
+% Accuracy of solutions provied by defsvt
+disp(norm(mat-u*s*v','fro')/norm(mat,'fro')); 
+
+%%
+% Accuracy of solutions provied by svds
 disp(norm(mat-su*ss*sv','fro')/norm(mat,'fro'));
 
-%% Singular value decomposition for structured but non-sparse matrix (sparse plus low rank)
+%% Singular value decomposition for structured matrix
 
 clear;
-% reset random seed
+% Reset random seed
 s = RandStream('mt19937ar','Seed',2014);
 RandStream.setGlobalStream(s);
 
 %%
-% read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection 
-load('tols1090.mat');
-
-mat = tols1090;
-fprintf('Size of tols1090: ');
-disp(size(mat));
-fprintf('Sparsity of tols1090: ');
-disp(1-nnz(mat)/(size(mat,1)*size(mat,2)))
+% Read in sparse matrices downloaded from The University of Florida Sparse
+% Matrix Collection
+data = load('tols1090.mat');
+mat = data.tols1090;
 
 %%
-% generation of non-sparse matrix (sparse plus low rank)
+% Generation of structured matrix (sparse plus low rank)
 m = size(mat,1);
 n = size(mat,2);
 p = randn(m,20);  
 l = randn(n,20);
 pl = p*l';                % generation of low rank matrix
 smat = mat + pl;          % sparse + low rank
-fprintf('Rank: ');
-disp(rank(pl));
+disp(rank(pl));           % rank 
 
 %%
-% comparison with svds
-fprintf('Run time of defsvt: ');
-%tic;
-%[u,s,v] = defsvt(@MAtimesVec,'m',m,'n',n,'k',10);
-%disp(toc);
+% Run time of defsvt for top 10 singular value decomposition
+tic;
+[u,s,v] = defsvt(@MAtimesVec,'m',m,'n',n,'k',10);
+disp(toc);
 
-fprintf('Run time of svds: ');
+%%
+% Run time of svds for top 10 singular value decomposition
 tic;
 [su,ss,sv] = svds(smat,10);
 disp(toc);
 
-%fprintf('Accuracy of solutions provied by defsvt');
-%disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
-fprintf('Accuracy of solutions provied by svds');
+%%
+% Accuracy of solutions provied by defsvt
+disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
+
+%%
+% Accuracy of solutions provied by svds
 disp(norm(smat-su*ss*sv','fro')/norm(smat,'fro'));
 
 %% Singular value thresholding for sparse matrix
 
 clear;
-% reset random seed
+% Reset random seed
 s = RandStream('mt19937ar','Seed',2014);
 RandStream.setGlobalStream(s);
 
 %%
-% read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection 
-load('mhd4800b.mat');
-%load('rdb800l.mat');
-
-%mat = rdb800l;
-mat = mhd4800b;
-fprintf('Size of rdb800l: ');
-disp(size(mat));
-fprintf('Sparsity of rdb800l: ');
-disp(1-nnz(mat)/(size(mat,1)*size(mat,2)))
+% read in sparse matrices downloaded from The University of Florida Sparse
+% Matrix Collection
+data = load('mhd4800b.mat');
+mat = data.mhd4800b;
 
 %%
-% comparison with svd & iterative svds
-fprintf('Run time of defsvt: ');
+% Size of matrix:
+disp(size(mat));
+
+%%
+% Sparsity of matrix
+disp(1-nnz(mat)/(size(mat,1)*size(mat,2)));
+
+%%
+% Run time of defsvt for singular value thresholding by applying deflation
+% method
 tic;
 [u,s,v] = defsvt(mat,'lambda',4.152050e-02);
 disp(toc);
 
-fprintf('Run time of svd: ');
-%tic;
-%[su,ss,sv] = svd(full(mat));
-%disp(toc);
-
-fprintf('Run time of itersvt: ');
+%%
+% Run time of svd for full singular value thresholding 
+fmat = full(mat);
 tic;
-[iu,is,iv] = itersvt(mat,'lambda',4.152050e-02);
+[su,ss,sv] = svd(fmat);
+dss = diag(ss);
+i = find(dss<=4.152050e-02);
+su = su(:,1:i-1);
+dss = dss(1:i-1);
+sv = sv(:,1:i-1);
+ss = diag(dss);
 disp(toc);
 
-% fprintf('Accuracy of solutions provied by defsvt');
-% disp(norm(mat-u*s*v','fro')/norm(mat,'fro'));
-% fprintf('Accuracy of solutions provied by svd');
-% disp(norm(mat-su*ss*sv','fro')/norm(mat,'fro'));
-% fprintf('Accuracy of solutions provied by itersvt');
-% disp(norm(mat-iu*is*iv','fro')/norm(mat,'fro'));
-
-%% Singular value thresholding for structured but non-sparse matrix (sparse plus low rank)
-
-% clear;
-% reset random seed
-% s = RandStream('mt19937ar','Seed',2014);
-% RandStream.setGlobalStream(s);
-% 
-% %
-% read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection 
-% load('mhd4800b.mat');
-% 
-% mat = mhd4800b;
-% fprintf('Size of mhd4800b: ');
-% disp(size(mat));
-% fprintf('Sparsity of mhd4800b: ');
-% disp(1-nnz(mat)/(size(mat,1)*size(mat,2)))
-% 
-% %
-% generation of non-sparse matrix (sparse plus low rank)
-% m = size(mat,1);
-% n = size(mat,2);
-% p = randn(m,20);  
-% l = randn(n,20);
-% pl = p*l';                % generation of low rank matrix
-% smat = mat + pl;          % sparse + low rank
-% fprintf('Rank: ');
-% disp(rank(pl));
+%%
+% Run time of defsvt for singular value thresholding by applying iteration
+% method
+tic;
+[iu,is,iv] = defsvt(mat,'lambda',4.152050e-02,'deflation',false);
+disp(toc);
 
 %%
-% comparison with iterative svds
-% fprintf('Run time of defsvt: ');
-% tic;
-% [u,s,v] = defsvt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02);
-% disp(toc);
+% Accuracy of solutions provied by defsvt based on deflation method 
+disp(norm(mat-u*s*v','fro')/norm(mat,'fro'));
 
-% fprintf('Run time of itersvt: ');
-% tic;
-% [iu,is,iv] = itersvt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02);
-% disp(toc);
-% 
-% fprintf('Accuracy of solutions provied by defsvt');
-% disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
-% fprintf('Accuracy of solutions provied by itersvt');
-% disp(norm(smat-iu*is*iv','fro')/norm(smat,'fro'));
+%%
+% Accuracy of solutions provied by svd  
+disp(norm(fmat-su*ss*sv','fro')/norm(fmat,'fro'));
 
+%%
+% Accuracy of solutions provied by defsvt based on iteration method
+disp(norm(mat-iu*is*iv','fro')/norm(mat,'fro'));
+
+%% Singular value thresholding for structured matrix 
+
+clear;
+% Reset random seed
+s = RandStream('mt19937ar','Seed',2014);
+RandStream.setGlobalStream(s);
+
+%%
+% Read in sparse matrices downloaded from The University of Florida Sparse
+% Matrix Collection
+data = load('mhd4800b.mat'); 
+mat = data.mhd4800b;
+
+%%
+% Generation of structured matrix (sparse plus low rank)
+m = size(mat,1);
+n = size(mat,2);
+p = randn(m,20);  
+l = randn(n,20);
+pl = p*l';                % generation of low rank matrix
+smat = mat + pl;          % sparse + low rank
+disp(rank(pl));           % rank
+
+%%
+% Run time of defsvt for singular value thresholding by applying deflation
+% method
+tic;
+[u,s,v] = defsvt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02,'deflation',true);
+disp(toc);
+
+%%
+% Run time of svd for full singular value thresholding 
+fmat = full(smat);
+tic;
+[su,ss,sv] = svd(fmat);
+dss = diag(ss);
+i = find(dss<=4.152050e-02);
+su = su(:,1:i-1);
+dss = dss(1:i-1);
+sv = sv(:,1:i-1);
+ss = diag(dss);
+disp(toc);
+
+%%
+% Run time of defsvt for singular value thresholding by applying deflation
+% method
+tic;
+[iu,is,iv] = defsvt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02,...
+'deflation',false);
+disp(toc);
+
+%%
+% Accuracy of solutions provied by defsvt based on deflation method 
+disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
+
+%%
+% Accuracy of solutions provied by svd  
+disp(norm(fmat-su*ss*sv','fro')/norm(fmat,'fro'));
+
+%%
+% Accuracy of solutions provied by defsvt based on iteration method 
+disp(norm(smat-iu*is*iv','fro')/norm(smat,'fro'));
+
+%%
+% Subfunction for utilizing matrix structure of sparse plus low rank
+function MAvec = MAtimesVec(vec, varargin)
+    argin = inputParser;
+    argin.addRequired('vec');
+    argin.addOptional('trans', false, @islogical);
+    argin.parse(vec,varargin{:});
+
+    trans = argin.Results.trans;
+
+    if trans
+       MAvec = (vec'*mat)' + l*(vec'*p)';
+    else
+       MAvec = mat*vec + p*(l'*vec);
+    end
+    
+end
+
+end
 
 
 
