@@ -55,6 +55,7 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %  Singular value thresholding, only compute the singular values exceeding
 %  10 by applying iteration method. Input is a function handle, and the
 %  dimension of the original data matrix is 1000-by-1000.
+%  More details can be seen in demo_defsvt.m
 %
 % COPYRIGHT: North Carolina State University 
 % AUTHOR: Cai Li, Hua Zhou
