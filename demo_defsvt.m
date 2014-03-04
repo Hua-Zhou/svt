@@ -18,7 +18,7 @@ disp(size(mat));
 
 %%
 % Sparsity of matrix
-disp(1-nnz(mat)/(size(mat,1)*size(mat,2))); 
+disp(nnz(mat)/numel(mat)); 
 
 %%
 % Run time of defsvt for top 10 singular value decomposition: 
