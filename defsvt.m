@@ -34,9 +34,10 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   flag - if 0, iterative eigs converged; 1, eigs not converged
 %
 % Examples:
-%  [U,S,V] = defsvt(A) - Singular value decomposition for the first 6 singular
-%  values.
-%  [U,S,V] = defsvt(A,'k',15) - Singular value decomposition for the first 15
+%  [U,S,V] = defsvt(A) - Singular value decomposition for the first 6
+%  singular values. 
+%  [U,S,V] = defsvt(A,'k',15) - Singular value
+%  decomposition for the first 15
 %  singular values.
 %  [U,S,V] = defsvt(A,'lambda',10) - Singular value thresholding, only
 %  compute the singular values exceeding 10 by applying deflation method.
