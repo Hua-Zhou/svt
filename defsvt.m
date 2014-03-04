@@ -9,7 +9,7 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   and associated singular vectors. It can also be used for top singular
 %   value decomposition, handle sparse matrix and other sturctue matrix for
 %   both two purposes. In the later case, user can input a function handle
-%   instead of the data matrix to utilize the matrix structue.
+%   instead of the data matrix to utilize the matrix structure.
 %    
 %   Available parameter name/value pairs are:      
 %   'lambda': threshold (default: NaN). When the value is NaN, defsvt
@@ -21,7 +21,7 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   'tol': eigs convergence tolerance (default: eps)
 %   'maxit': maximum number of eigs iterations (default: 300)
 %   'deflation': whether to use deflation method (default: true). If
-%   specifying the option as false, an iterative method is applied for
+%   specifying the option as false, an iteration method is applied for
 %   thresholding.
 %
 % INPUT:
@@ -34,15 +34,15 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %   flag - if 0, iterative eigs converged; 1, eigs not converged
 %
 % Examples:
-%  [U,S,V] = defsvt(A) - Singular value decomposition for first 6 singular
+%  [U,S,V] = defsvt(A) - Singular value decomposition for the first 6 singular
 %  values.
-%  [U,S,V] = defsvt(A,'k',15) - Singular value decomposition for first 15
+%  [U,S,V] = defsvt(A,'k',15) - Singular value decomposition for the first 15
 %  singular values.
 %  [U,S,V] = defsvt(A,'lambda',10) - Singular value thresholding, only
 %  compute the singular values exceeding 10 by applying deflation method.
 %  [U,S,V] = defsvt(A,'lambda',10,'deflation',false) - Singular value
 %  thresholding, only compute the singular values exceeding 10 by applying
-%  iterative method. 
+%  iteration method. 
 %  [U,S,V] = defsvt(Afun,'k',15,'m',1000,'n',1000) - Singular value
 %  decomposition for first 15 singular values, input is a function handle,
 %  and the dimension of the original data matrix is 1000-by-1000.
@@ -52,7 +52,7 @@ function[U,S,V,flag] = defsvt(A,varargin)
 %  original data matrix is 1000-by-1000.
 %  [U,S,V] = defsvt(Afun,'lambda',10,'m',1000,'n',1000,'deflation',false) -
 %  Singular value thresholding, only compute the singular values exceeding
-%  10 by applying iterative method. Input is a function handle, and the
+%  10 by applying iteration method. Input is a function handle, and the
 %  dimension of the original data matrix is 1000-by-1000.
 %
 % COPYRIGHT: North Carolina State University 
@@ -169,7 +169,7 @@ while iter>0
     if def % Deflation method adds the results every iteration
         w = [w,eigvecs];
         e = [e;eigvals];
-    else   % Iterative method overwrites the results every iteration 
+    else   % Iteration method overwrites the results every iteration 
         w = eigvecs;
         e = eigvals;
     end
@@ -181,7 +181,7 @@ while iter>0
     iter = iter-k;
     if def % Increment based on deflation method
         k = min(incre,iter);
-    else   % Increment based on iterative method
+    else   % Increment based on iteration method
         k = min(k+incre,iter);
     end
     incre = incre*2; % Non-constant increment
