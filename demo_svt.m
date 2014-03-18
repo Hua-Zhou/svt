@@ -24,13 +24,13 @@ disp(nnz(mat)/numel(mat));
 % Run time of svt for top 10 singular value decomposition: 
 tic;
 [u,s,v] = svt(mat,'k',10);
-disp(toc);
+toc;
 
 %%
 % Run time of svds for top 10 singular value decomposition: 
 tic;
 [su,ss,sv] = svds(mat,10);
-disp(toc);
+toc;
 
 %%
 % Accuracy of solutions provided by svt
@@ -67,13 +67,13 @@ disp(rank(lr));           % rank
 % Run time of svt for top 10 singular value decomposition
 tic;
 [u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'k',10);
-disp(toc);
+toc;
 
 %%
 % Run time of svds for top 10 singular value decomposition
 tic;
 [su,ss,sv] = svds(smat,10);
-disp(toc);
+toc;
 
 %%
 % Accuracy of solutions provided by svt
@@ -109,7 +109,7 @@ disp(1-nnz(mat)/numel(mat));
 % method
 tic;
 [u,s,v] = svt(mat,'lambda',4.152050e-02);
-disp(toc);
+toc;
 
 %%
 % Run time of svd for full singular value thresholding 
@@ -122,14 +122,14 @@ su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
-disp(toc);
+toc;
 
 %%
 % Run time of svt for singular value thresholding by applying succession
 % method
 tic;
 [iu,is,iv] = svt(mat,'lambda',4.152050e-02,'method','succession');
-disp(toc);
+toc;
 
 %%
 % Accuracy of solutions provided by svt based on deflation method 
@@ -171,7 +171,7 @@ disp(rank(lr));           % rank
 % method
 tic;
 [u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02);
-disp(toc);
+toc;
 
 %%
 % Run time of svd for full singular value thresholding 
@@ -184,15 +184,15 @@ su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
-disp(toc);
+toc;
 
 %%
-% Run time of svt for singular value thresholding by applying deflation
+% Run time of svt for singular value thresholding by applying succession
 % method
 tic;
 [iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02,...
 'method','succession');
-disp(toc);
+toc;
 
 %%
 % Accuracy of solutions provided by svt based on deflation method 
