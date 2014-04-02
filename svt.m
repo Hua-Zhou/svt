@@ -177,10 +177,18 @@ while iter>0
         if ~isempty(i) % Threshold found
             if def
                 w = [w,eigvecs(:,1:i-1)];
-                e = [e;eigvals(1:i-1)];         
+                e = [e;eigvals(1:i-1)];
+                if isempty(e) % Fast return for lambda>=max(eigvals)
+                    U = []; S = []; V = []; flag = 0;
+                    return
+                end
             else
                 w = eigvecs(:,1:i-1);
                 e = eigvals(1:i-1);
+                if isempty(e) % Fast return for lambda>=max(eigvals)
+                    U = []; S = []; V = []; flag = 0;
+                    return
+                end
             end
             break
         end
