@@ -26,13 +26,13 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
+gridpts = 11;
 lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('structure_svt');
 % solution path by warm start
 tic;
-%profile on;
+profile on;
 for i=1:gridpts
     if (i==1)
         Y0 = [];
@@ -46,7 +46,7 @@ for i=1:gridpts
         display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
     end
 end
-%profile viewer;
+profile viewer;
 toc;
 
 %% generate a random matrix with missing entries
@@ -76,12 +76,12 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
+gridpts = 11;
 lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('svt');
 tic;
-%profile on;
+profile on;
 for i=1:gridpts
     if (i==1)
         Y0 = [];
@@ -96,7 +96,7 @@ for i=1:gridpts
         display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
     end
 end
-%profile viewer;
+profile viewer;
 toc;
 
 %% generate a random matrix with missing entries
@@ -126,7 +126,7 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
+gridpts = 11;
 lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('full_svt');

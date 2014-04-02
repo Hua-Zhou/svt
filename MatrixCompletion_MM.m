@@ -30,9 +30,11 @@ method = argin.Results.method;
 % check dimensions and retrieve missing entry information
 [p1,p2,n] = size(X);
 Wts = n-sum(isnan(X),3);    % weight matrix in objective
+Wts = sparse(Wts);
 W = 1-sum(~isnan(X),3)/n;   % weight matrix for MM algorithm
 Xavg = mean(X,3);
 Xavg(isnan(Xavg)) = 0;
+Xavg = sparse(Xavg);
 
 % initialize
 if (isempty(Y0))
@@ -66,6 +68,9 @@ for iter=1:MaxIter
 %         end
         s = diag(s)-lambda/n;    % shrinkage
         %lens = length(s);
+        Dtrans = D';
+        Utrans = U';
+        Vtrans = V';
     elseif (strcmpi(method,'svt'))
         M = Xavg + W.*Y;
         [U,s,V] = svt(M,'lambda',lambda/n); % call svt
@@ -113,9 +118,11 @@ function MAvec = MAtimesVec(vec, trans)
        end
     else
        if trans
-         MAvec = (vec'*D)' + V*(s.*(vec'*U)');
+         %MAvec = (vec'*D)' + V*(s.*(vec'*U)');
+         MAvec = Dtrans*vec + V*(s.*(Utrans*vec));
        else
-         MAvec = D*vec + U*(s.*(V'*vec));
+         %MAvec = D*vec + U*(s.*(V'*vec));
+         MAvec = D*vec + U*(s.*(Vtrans*vec));
        end
     end
     
