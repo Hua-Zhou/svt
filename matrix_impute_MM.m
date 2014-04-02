@@ -27,7 +27,7 @@ MaxIter = argin.Results.MaxIter;
 TolFun = argin.Results.TolFun;
 Y0 = argin.Results.Y0;
 
-% check dimensions and retrieve mising entry information
+% check dimensions and retrieve missing entry information
 [p1,p2,n] = size(X);
 Wts = n-sum(isnan(X),3);    % weight matrix in objective
 W = 1-sum(~isnan(X),3)/n;   % weight matrix for MM algorithm
@@ -77,11 +77,10 @@ objval = inf;
 for iter=1:MaxIter
 
     % thesholding intermediate matrix
-    %M = Xavg + W.*Y;
-    WY = Wts.*Y;  
-    D = Xavg-WY;
-    [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); % call svt
-    %[U,s,V] = svt(M,'lambda',lambda/n); % call svt
+    M = Xavg + W.*Y;
+    %D = Xavg-Wts.*Y;
+    %[U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); % call svt
+    [U,s,V] = svt(M,'lambda',lambda/n); % call svt
     %[U,s,V] = fsvt(M,lambda/n);                 % call fsvt
     s = diag(s)-lambda/n;                              % shrinkage
     %Y_old = Y;
@@ -144,11 +143,19 @@ function MAvec = MAtimesVec(vec, varargin)
     argin.parse(vec,varargin{:});
 
     trans = argin.Results.trans;
-
-    if trans
-       MAvec = (vec'*D)' + (vec'*Y)';
+    
+    if iter == 1
+       if trans
+         MAvec = (vec'*D)' + (vec'*Y)';
+       else
+         MAvec = D*vec + Y*vec;
+       end
     else
-       MAvec = D*vec + Y*vec;
+       if trans
+         MAvec = (vec'*D)' + V*(s.*(vec'*U)');
+       else
+         MAvec = D*vec + U*(s.*(V'*vec));
+       end
     end
     
 end
