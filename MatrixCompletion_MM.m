@@ -30,11 +30,9 @@ method = argin.Results.method;
 % check dimensions and retrieve missing entry information
 [p1,p2,n] = size(X);
 Wts = n-sum(isnan(X),3);    % weight matrix in objective
-Wts = sparse(Wts);
 W = 1-sum(~isnan(X),3)/n;   % weight matrix for MM algorithm
 Xavg = mean(X,3);
 Xavg(isnan(Xavg)) = 0;
-Xavg = sparse(Xavg);
 
 % initialize
 if (isempty(Y0))
@@ -59,28 +57,26 @@ for iter=1:MaxIter
     % thesholding intermediate matrix
     if (strcmpi(method,'stru_svt'))
         D = Xavg-Wts.*Y;
-        [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n);
+        D = sparse(D);
+        [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession');
 %         if iter==1
-%             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); 
+%             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession'); 
 %         else
 %             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,...
-%                 'k',lens);
+%                 'k',lens,'method','succession');
 %         end
         s = diag(s)-lambda/n;    % shrinkage
-        %lens = length(s);
-        Dtrans = D';
-        Utrans = U';
-        Vtrans = V';
+%          lens = length(s);
     elseif (strcmpi(method,'svt'))
         M = Xavg + W.*Y;
-        [U,s,V] = svt(M,'lambda',lambda/n); % call svt
+        [U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
 %         if iter==1
-%             [U,s,V] = svt(M,'lambda',lambda/n); % call svt
+%             [U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
 %         else
-%             [U,s,V] = svt(M,'lambda',lambda/n,'k',lens); % call svt
+%             [U,s,V] = svt(M,'lambda',lambda/n,'k',lens,'method','succession'); % call svt
 %         end
         s = diag(s)-lambda/n;    % shrinkage
-        %lens = length(s);
+%         lens = length(s);
     elseif (strcmpi(method,'full'))
         M = Xavg + W.*Y;
         [U,s,V] = fsvt(M,lambda/n);                 % call fsvt
@@ -109,7 +105,11 @@ stats.rank = length(s);
 
 % Subfunction for utilizing matrix structure of sparse plus low rank
 function MAvec = MAtimesVec(vec, trans)
-    
+%     if trans
+%          MAvec = (vec'*D)' + (vec'*Y)';
+%     else
+%          MAvec = D*vec + Y*vec;
+%     end 
     if iter == 1
        if trans
          MAvec = (vec'*D)' + (vec'*Y)';
@@ -118,11 +118,9 @@ function MAvec = MAtimesVec(vec, trans)
        end
     else
        if trans
-         %MAvec = (vec'*D)' + V*(s.*(vec'*U)');
-         MAvec = Dtrans*vec + V*(s.*(Utrans*vec));
+         MAvec = (vec'*D)' + V*(s.*(vec'*U)');
        else
-         %MAvec = D*vec + U*(s.*(V'*vec));
-         MAvec = D*vec + U*(s.*(Vtrans*vec));
+         MAvec = D*vec + U*(s.*(V'*vec));
        end
     end
     
