@@ -5,14 +5,14 @@ clear;
 s = RandStream('mt19937ar','Seed',2014);  % Reset random seed
 RandStream.setGlobalStream(s);
 
-p1 = 500;
-p2 = 500;
-r = 5;
+p1 = 1000;
+p2 = 1000;
+r = 100;
 
 M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
 display(rank(M));
 
-missingprop = 0.75;
+missingprop = 0.95;
 missingidx = rand(p1,p2)<missingprop;
 
 Mobs = M;
@@ -26,13 +26,14 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 11;
-lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+gridpts = 5;
+%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+lambdas = maxlambda-3*(1:1:gridpts);
 
 display('structure_svt');
 % solution path by warm start
 tic;
-profile on;
+%profile on;
 for i=1:gridpts
     if (i==1)
         Y0 = [];
@@ -46,7 +47,7 @@ for i=1:gridpts
         display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
     end
 end
-profile viewer;
+%profile viewer;
 toc;
 
 %% generate a random matrix with missing entries
@@ -55,14 +56,14 @@ clear;
 s = RandStream('mt19937ar','Seed',2014);  % Reset random seed
 RandStream.setGlobalStream(s);
 
-p1 = 500;
-p2 = 500;
-r = 5;
+p1 = 1000;
+p2 = 1000;
+r = 100;
 
 M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
 display(rank(M));
 
-missingprop = 0.75;
+missingprop = 0.95;
 missingidx = rand(p1,p2)<missingprop;
 
 Mobs = M;
@@ -76,12 +77,13 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 11;
-lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+gridpts = 5;
+%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+lambdas = maxlambda-3*(1:1:gridpts);
 
 display('svt');
 tic;
-profile on;
+%profile on;
 for i=1:gridpts
     if (i==1)
         Y0 = [];
@@ -96,7 +98,7 @@ for i=1:gridpts
         display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
     end
 end
-profile viewer;
+%profile viewer;
 toc;
 
 %% generate a random matrix with missing entries
@@ -105,14 +107,14 @@ clear;
 s = RandStream('mt19937ar','Seed',2014);  % Reset random seed
 RandStream.setGlobalStream(s);
 
-p1 = 500;
-p2 = 500;
-r = 5;
+p1 = 1000;
+p2 = 1000;
+r = 100;
 
 M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
 display(rank(M));
 
-missingprop = 0.75;
+missingprop = 0.95;
 missingidx = rand(p1,p2)<missingprop;
 
 Mobs = M;
@@ -126,8 +128,9 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 11;
-lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+gridpts = 5;
+%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+lambdas = maxlambda-3*(1:1:gridpts);
 
 display('full_svt');
 tic;
