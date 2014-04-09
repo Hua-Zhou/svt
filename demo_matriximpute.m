@@ -5,14 +5,14 @@ clear;
 s = RandStream('mt19937ar','Seed',2014);  % Reset random seed
 RandStream.setGlobalStream(s);
 
-p1 = 1000;
-p2 = 1000;
-r = 100;
+p1 = 1500;
+p2 = 1500;
+r = 10;
 
-M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2); %+ randn(p1,p2);
 display(rank(M));
 
-missingprop = 0.95;
+missingprop = 0.99;
 missingidx = rand(p1,p2)<missingprop;
 
 Mobs = M;
