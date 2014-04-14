@@ -5,14 +5,14 @@ clear;
 s = RandStream('mt19937ar','Seed',2014);  % Reset random seed
 RandStream.setGlobalStream(s);
 
-p1 = 1500;
-p2 = 1500;
-r = 10;
+p1 = 1000;
+p2 = 1000;
+r = 50;
 
-M = randn(p1,r) * randn(r,p2) + randn(p1,p2); %+ randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
 display(rank(M));
 
-missingprop = 0.99;
+missingprop = 0.95;
 missingidx = rand(p1,p2)<missingprop;
 
 Mobs = M;
@@ -26,15 +26,14 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
-%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
-lambdas = maxlambda-3*(1:1:gridpts);
+gridpts = 50;
+lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('structure_svt');
 % solution path by warm start
 tic;
 %profile on;
-for i=1:gridpts
+for i=1:5
     if (i==1)
         Y0 = [];
     else
@@ -58,9 +57,9 @@ RandStream.setGlobalStream(s);
 
 p1 = 1000;
 p2 = 1000;
-r = 100;
+r = 50;
 
-M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
 display(rank(M));
 
 missingprop = 0.95;
@@ -77,14 +76,13 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
-%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
-lambdas = maxlambda-3*(1:1:gridpts);
+gridpts = 50;
+lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('svt');
 tic;
 %profile on;
-for i=1:gridpts
+for i=1:5
     if (i==1)
         Y0 = [];
     else
@@ -109,9 +107,9 @@ RandStream.setGlobalStream(s);
 
 p1 = 1000;
 p2 = 1000;
-r = 100;
+r = 50;
 
-M = randn(p1,r) * randn(r,p2); %+ randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
 display(rank(M));
 
 missingprop = 0.95;
@@ -128,14 +126,13 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 %%
-gridpts = 5;
-%lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
-lambdas = maxlambda-3*(1:1:gridpts);
+gridpts = 50;
+lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
 
 display('full_svt');
 tic;
 %profile on;
-for i=1:gridpts
+for i=1:5
     if (i==1)
         Y0 = [];
     else
