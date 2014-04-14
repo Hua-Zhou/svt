@@ -58,22 +58,22 @@ for iter=1:MaxIter
     if (strcmpi(method,'stru_svt'))
         D = Xavg-Wts.*Y;
         D = sparse(D);
-%         [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession');
+        %[U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession');
         if iter==1
-            [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession'); 
+            [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); 
         else
             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,...
-                'k',lens+3,'method','succession');
+                'k',lens+3);
         end
         s = diag(s)-lambda/n;    % shrinkage
         lens = length(s);
     elseif (strcmpi(method,'svt'))
         M = Xavg + W.*Y;
-%         [U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
+        %[U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
         if iter==1
-            [U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
+            [U,s,V] = svt(M,'lambda',lambda/n); % call svt
         else
-            [U,s,V] = svt(M,'lambda',lambda/n,'k',lens+3,'method','succession'); % call svt
+            [U,s,V] = svt(M,'lambda',lambda/n,'k',lens+3); % call svt
         end
         s = diag(s)-lambda/n;    % shrinkage
         lens = length(s);
