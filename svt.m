@@ -175,7 +175,7 @@ while iter>0
     eigvals = diag(eigvals); % Eigs output sorted
     if def % Avoid non convergence situation generate the ruin fo deflation
         if (eflag)
-            warning('eflag is %d, turn to sucession with warmstart.',eflag);
+            warning('eflag is %d, turn to succession with warm start.',eflag);
             k = length(e);
             def = 0;
             [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n), ...
