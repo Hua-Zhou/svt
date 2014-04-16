@@ -173,17 +173,17 @@ opts.issym = 1; % [zeros(n,n),A';zeros(m,m),A] is symmetric
 while iter>0 
     [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n),double(k),'la',opts);
     eigvals = diag(eigvals); % Eigs output sorted
-    if def % Avoid non convergence situation generate the ruin fo deflation
-        if (eflag)
+    if ~(isnan(lambda)) % For thresholding
+        if (eflag) % Avoid non convergence situation ruin the deflation
             warning('eflag is %d, turn to succession with warm start.',eflag);
-            k = length(e);
+            k = length(e)-1; % Shift one to avoid another non convergence
             def = 0;
             [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n), ...
                 double(k), 'la',opts);
             eigvals = diag(eigvals);   
         end
     end
-    if ~(isnan(lambda))
+    if ~(isnan(lambda)) 
         i = find(eigvals<=lambda,1); % Thresholding
         if ~isempty(i) % Threshold found
             if def
