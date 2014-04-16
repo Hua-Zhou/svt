@@ -226,9 +226,9 @@ records = records(:,2:rep)';
 fprintf('The mean of run time of svt is %d\n',mean(records(:,1)));
 fprintf('The mean of run time of objective function is %d\n', ...
     mean(records(:,2)));
-fprintf('The se of run time of svt is %d\n',std(records(:,1))/sqrt(rep-1));
+fprintf('The se of run time of svt is %d\n',std(records(:,1))/sqrt(rep-2));
 fprintf('The se of run time of objective function is %d\n', ...
-    std(records(:,2))/sqrt(rep-1));
+    std(records(:,2))/sqrt(rep-2));
 fprintf('\n');
 
 
