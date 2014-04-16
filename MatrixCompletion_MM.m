@@ -8,8 +8,10 @@ function [Y,stats] = MatrixCompletion_MM(X,lambda,varargin)
 %   Y - the imputation matrix
 %   stats - algorithmic statistics
 %
+% For testing purpose: Making comparison of three thresholding methods
+%
 % COPYRIGHT North Carolina State University 
-% AUTHOR: Hua Zhou (hua_zhou@ncsu.edu)
+% AUTHOR: Hua Zhou (hua_zhou@ncsu.edu)  Cai Li (cli9@ncsu.edu)
 
 % parse inputs
 argin = inputParser;
@@ -61,7 +63,7 @@ for iter=1:MaxIter
         %[U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,'method','succession');
         if iter==1
             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); 
-        else
+        else  % with warm start
             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,...
                 'k',lens+3);
         end
@@ -72,7 +74,7 @@ for iter=1:MaxIter
         %[U,s,V] = svt(M,'lambda',lambda/n,'method','succession'); % call svt
         if iter==1
             [U,s,V] = svt(M,'lambda',lambda/n); % call svt
-        else
+        else   % with warm start
             [U,s,V] = svt(M,'lambda',lambda/n,'k',lens+3); % call svt
         end
         s = diag(s)-lambda/n;    % shrinkage
