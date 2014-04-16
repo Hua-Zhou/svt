@@ -9,7 +9,7 @@ p1 = 1000;
 p2 = 1000;
 r = 50;
 
-M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2); % Plus random noise
 display(rank(M));
 
 missingprop = 0.95;
@@ -59,7 +59,7 @@ p1 = 1000;
 p2 = 1000;
 r = 50;
 
-M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2);   % Plus random noise
 display(rank(M));
 
 missingprop = 0.95;
@@ -109,7 +109,7 @@ p1 = 1000;
 p2 = 1000;
 r = 50;
 
-M = randn(p1,r) * randn(r,p2) + randn(p1,p2);
+M = randn(p1,r) * randn(r,p2) + randn(p1,p2);   % Plus random noise
 display(rank(M));
 
 missingprop = 0.95;
