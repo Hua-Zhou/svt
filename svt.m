@@ -1,13 +1,12 @@
 function[U,S,V,flag] = svt(A,varargin)
-% SVT 
-%
-%   SVT computes the singular values exceeding user defined threshold
-%   and associated singular vectors. It can also be used for top singular
-%   value decomposition, handle sparse matrix and other sturctue matrix for
-%   both two purposes. In the later case, user can input a function handle
-%   instead of the data matrix to utilize the matrix structure.
+% SVT Singular value thresholding
+%   SVT computes the singular values exceeding user defined threshold and
+%   associated singular vectors. It can also be used for top singular value
+%   decomposition. It handles sparse matrix and other sturctue matrix. In
+%   the later case, user inputs a function handle instead of the data
+%   matrix to exploit the matrix structure for fast matrix-vector
+%   multiplication.
 % 
-%
 % USAGE:
 %   [U,S,V,flag] = SVT(A,'PARAM1',val1,'PARAM2',val2...)
 %   S = SVT(A,'PARAM1',val1,'PARAM2',val2...)
@@ -22,20 +21,17 @@ function[U,S,V,flag] = svt(A,varargin)
 %   V - right singular vectors
 %   flag - if 0, iterative eigs converged; 1, eigs not converged
 %
-%
-%   Available parameter name/value pairs are:      
-%   'lambda': threshold (default: NaN). When the value is NaN, svt
-%   implements singular value decompositon.
-%   'k': number of singular values to try (default: 6)
-%   'incre': increment of try after first k attemp (default: 5)
-%   'm': dimension of row. Only needed for function handle input.
-%   'n': dimension of column. Only needed for function handle input.
-%   'tol': eigs convergence tolerance (default: eps)
-%   'maxit': maximum number of eigs successions (default: 300) 'method':
-%   whether to use deflation method (default: 'deflation'). If specifying
-%   the option as 'succession', an succession method is applied for
-%   thresholding.
-%
+% Optional parameter name/value pairs are:      
+%   'lambda' - threshold (default: NaN). When the value is NaN, svt
+%       retrieves top singular values/vectors.
+%   'k' - number of singular values to try (default: 6)
+%   'incre' - increment to catch the threshold (default: 5)
+%   'm' - number of rows. Required for function handle input.
+%   'n' - number of columns. Required for function handle input.
+%   'tol' - eigs convergence tolerance (default: eps)
+%   'maxit' - maximum number of eigs successions (default: 300) 
+%   'method' - deflation method (default: 'deflation'). If specified as 
+%       'succession', an succession method is applied for thresholding.
 %
 % Examples:
 %  Singular value decomposition for the first 6 singular values. 
@@ -71,7 +67,7 @@ function[U,S,V,flag] = svt(A,varargin)
 %
 % COPYRIGHT: North Carolina State University 
 % AUTHOR: Cai Li, Hua Zhou
-% Email: cli9@ncsu.edu
+% Email: cli9@ncsu.edu, hua_zhou@ncsu.edu
 
 % Parse input
 argin = inputParser;
@@ -161,7 +157,7 @@ end
 if ~(isnan(lambda))
     if (incre>iter-k)
         incre = iter-k;
-        warning('Incre is out of dimension, reseted to maximum value.');
+        warning('Incre is out of dimension; reset to maximum value.');
     end
 end
 
@@ -187,7 +183,7 @@ while iter>0
         i = find(eigvals<=lambda,1); % Thresholding
         if ~isempty(i) % Threshold found
             if def
-                w = [w,eigvecs(:,1:i-1)];
+                w = [w,eigvecs(:,1:i-1)]; %#ok<*AGROW>
                 e = [e;eigvals(1:i-1)];
                 if isempty(e) % Fast return for lambda>=max(eigvals)
                     U = []; S = []; V = []; flag = 0;
