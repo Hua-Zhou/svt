@@ -13,7 +13,7 @@ function[U,S,V,flag] = svt(A,varargin)
 %
 % INPUT:
 %   A - m-by-n matrix or a function handle provided by user
-%   A should be large and sparse
+%   A should be large and sparse if A is a matrix
 %
 % OUTPUT:
 %   U - left singular vectors
@@ -28,10 +28,10 @@ function[U,S,V,flag] = svt(A,varargin)
 %   'incre' - increment to catch the threshold (default: 5)
 %   'm' - number of rows. Required for function handle input.
 %   'n' - number of columns. Required for function handle input.
-%   'tol' - eigs convergence tolerance (default: eps)
+%   'tol' - convergence tolerance (default: 1e-10)
 %   'maxit' - maximum number of eigs successions (default: 300) 
 %   'method' - deflation method (default: 'deflation'). If specified as 
-%       'succession', an succession method is applied for thresholding.
+%       'succession', a succession method is applied for thresholding.
 %
 % Examples:
 %  Singular value decomposition for the first 6 singular values. 
@@ -77,7 +77,7 @@ argin.addParamValue('k',6,@(x) x>0);
 argin.addParamValue('incre',5,@(x) x>0);
 argin.addParamValue('m',NaN);
 argin.addParamValue('n',NaN);
-argin.addParamValue('tol',eps,@(x) x>0);
+argin.addParamValue('tol',1e-10,@(x) x>0);
 argin.addParamValue('maxit',300,@(x) x>0);
 argin.addParamValue('method','deflation',@(x) strcmp(x,'deflation') ...
                    || strcmp(x,'succession'))
@@ -86,7 +86,7 @@ argin.parse(A,varargin{:});
 k = argin.Results.k;
 incre = argin.Results.incre;
 lambda = argin.Results.lambda;
-tol = argin.Results.tol;
+tol = argin.Results.tol/sqrt(2);
 maxit = argin.Results.maxit;
 method = argin.Results.method;
 if (strcmpi(method,'deflation'))
@@ -102,8 +102,10 @@ opts.maxit = maxit;
 if isnumeric(A) % If input A is a matrix
     if isnan(lambda) % Call svds directly for decomposition purpose 
         if nargout<=1
+            opts.tol = opts.tol*sqrt(2);
             U = diag(svds(A,k,'L',opts));
         else
+            opts.tol = opts.tol*sqrt(2);
             [U,S,V,flag] = svds(A,k,'L',opts);
         end
         return
@@ -124,7 +126,7 @@ iter = min(m,n); % Set maximum succession number
 % Check validity of k 
 if (k>iter)
     k = iter;
-    warning('K is out of dimension, reseted to maximum value.');
+    warning('K is out of dimension, reset to maximum value.');
 end
 
 % Check validity of lambda
