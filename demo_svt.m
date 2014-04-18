@@ -1,5 +1,5 @@
 %%
-% We need a functional enviroment so that the MAtimesVec subfunction can
+% We need a functional environment so that the MAtimesVec subfunction can
 % access variables in workspace
 function[] = demo_svt
 
@@ -236,7 +236,7 @@ disp(norm(u*s*v'- su*ss*sv','fro'));
 disp(norm(iu*is*iv'- su*ss*sv','fro')); 
 
 %%
-% Subfunction for utilizing matrix structure of sparse plus low rank
+% Subfunction for exploiting matrix structure of sparse plus low rank
 function MAvec = MAtimesVec(vec, trans)
 
     if trans
