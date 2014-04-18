@@ -21,7 +21,7 @@ Mobs(missingidx) = nan;
 %% find max lambda for nuclear norm regularization
 
 %[~,stats] = matrix_impute_Nesterov(Mobs,inf);
-[~,stats] = matrix_impute_MM(Mobs,inf);
+[~,stats] = MatrixCompletion_MM(Mobs,inf);
 maxlambda = stats.maxlambda;
 disp(maxlambda);
 
@@ -71,7 +71,7 @@ Mobs(missingidx) = nan;
 %% find max lambda for nuclear norm regularization
 
 %[~,stats] = matrix_impute_Nesterov(Mobs,inf);
-[~,stats] = matrix_impute_MM(Mobs,inf);
+[~,stats] = MatrixCompletion_MM(Mobs,inf);
 maxlambda = stats.maxlambda;
 disp(maxlambda);
 
@@ -121,7 +121,7 @@ Mobs(missingidx) = nan;
 %% find max lambda for nuclear norm regularization
 
 %[~,stats] = matrix_impute_Nesterov(Mobs,inf);
-[~,stats] = matrix_impute_MM(Mobs,inf);
+[~,stats] = MatrixCompletion_MM(Mobs,inf);
 maxlambda = stats.maxlambda;
 disp(maxlambda);
 
