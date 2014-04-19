@@ -166,6 +166,7 @@ end
 w = [];  % Keep eigenvectors
 e = [];  % Keep eigenvalues 
 opts.issym = 1; % [zeros(n,n),A';zeros(m,m),A] is symmetric
+ref = 0; % flag for refreshment
 
 % Main loop for computing singular values sequentially
 while iter>0 
@@ -173,12 +174,15 @@ while iter>0
     eigvals = diag(eigvals); % Eigs output sorted
     if ~(isnan(lambda)) % For thresholding
         if (eflag) % Avoid non convergence situation ruin the deflation
-            warning('eflag is %d, turn to succession with warm start.',eflag);
+            warning('eflag is %d, refresh with warm start.',eflag);
             k = length(e)-1; % Shift one to avoid another non convergence
-            def = 0;
+            if def
+                ref = 1;
+                def = 0;
+            end
             [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n), ...
                 double(k), 'la',opts);
-            eigvals = diag(eigvals);   
+            eigvals = diag(eigvals); 
         end
     end
     if ~(isnan(lambda)) 
@@ -208,6 +212,9 @@ while iter>0
     else   % Succession method overwrites the results every succession 
         w = eigvecs;
         e = eigvals;
+        if ref
+            def = 1;
+        end
     end
 
     if (isnan(lambda)) % For decomposition
