@@ -5,6 +5,8 @@ load('bfwb398.mat');
 load('rdb800l.mat');
 load('tols1090.mat');
 load('mhd4800b.mat');
+load('cryg10000.mat');
+load('af23560.mat');
 % records1 = zeros(rep-1,1);
 % records2 = zeros(rep-1,1);
 
@@ -39,3 +41,19 @@ records_44 = Sim(mhd4800b,'choice','svt-svd-stru','rep',rep,'seed',2014);
 records_45 = Sim(mhd4800b,'choice','without-stru','rep',rep,'seed',2014);
 records_46 = Sim(mhd4800b,'choice','succession','rep',rep,'seed',2014);
 records_47 = Sim(mhd4800b,'choice','stru-succession','rep',rep,'seed',2014);
+
+records_51 = Sim(cryg10000,'choice','svds','rep',rep,'seed',2014);
+records_52 = Sim(cryg10000,'choice','stru-svds','rep',rep,'seed',2014);
+records_53 = Sim(cryg10000,'choice','svt-svd','rep',rep,'seed',2014);
+records_54 = Sim(cryg10000,'choice','svt-svd-stru','rep',rep,'seed',2014);
+records_55 = Sim(cryg10000,'choice','without-stru','rep',rep,'seed',2014);
+records_56 = Sim(cryg10000,'choice','succession','rep',rep,'seed',2014);
+records_57 = Sim(cryg10000,'choice','stru-succession','rep',rep,'seed',2014);
+
+records_61 = Sim(af23560,'choice','svds','rep',rep,'seed',2014);
+records_62 = Sim(af23560,'choice','stru-svds','rep',rep,'seed',2014);
+records_63 = Sim(af23560,'choice','svt-svd','rep',rep,'seed',2014);
+records_64 = Sim(af23560,'choice','svt-svd-stru','rep',rep,'seed',2014);
+records_65 = Sim(af23560,'choice','without-stru','rep',rep,'seed',2014);
+records_66 = Sim(af23560,'choice','succession','rep',rep,'seed',2014);
+records_67 = Sim(af23560,'choice','stru-succession','rep',rep,'seed',2014);
