@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>demo_svt</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-04-13"><meta name="DC.source" content="demo_svt.m"><style type="text/css">
+      --><title>demo_svt</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-04-19"><meta name="DC.source" content="demo_svt.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -65,63 +65,71 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Singular value decomposition for sparse matrix</a></li><li><a href="#10">Singular value decomposition for structured matrix</a></li><li><a href="#17">Singular value thresholding for sparse matrix</a></li><li><a href="#27">Singular value thresholding for structured matrix</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span>[] = demo_svt
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Singular value decomposition for sparse matrix</a></li><li><a href="#11">Singular value decomposition for structured (sparse + low rank) matrix</a></li><li><a href="#19">Singular value thresholding for sparse matrix</a></li><li><a href="#29">Singular value thresholding for structured (sparse + low rank) matrix</a></li></ul></div><p>We need a functional environment so that the MAtimesVec subfunction can access variables in workspace</p><pre class="codeinput"><span class="keyword">function</span>[] = demo_svt
 </pre><h2>Singular value decomposition for sparse matrix<a name="2"></a></h2><pre class="codeinput">clear;
 <span class="comment">% Reset random seed</span>
 s = RandStream(<span class="string">'mt19937ar'</span>,<span class="string">'Seed'</span>,2014);
 RandStream.setGlobalStream(s);
-</pre><p>Read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection</p><pre class="codeinput">data = load(<span class="string">'tols1090.mat'</span>);
-mat = data.tols1090;
+</pre><p>Read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection</p><pre class="codeinput">data = load(<span class="string">'mhd4800b.mat'</span>);
+mat = data.mhd4800b;
 </pre><p>Size of matrix</p><pre class="codeinput">disp(size(mat));
-</pre><pre class="codeoutput">        1090        1090
+</pre><pre class="codeoutput">        4800        4800
 
 </pre><p>Sparsity of matrix</p><pre class="codeinput">disp(nnz(mat)/numel(mat));
-</pre><pre class="codeoutput">    0.0030
+</pre><pre class="codeoutput">    0.0012
 
-</pre><p>Run time of svt for top 10 singular value decomposition:</p><pre class="codeinput">tic;
-[u,s,v] = svt(mat,<span class="string">'k'</span>,10);
+</pre><p>Top 25 singular values/vectors by svt</p><pre class="codeinput">tic;
+[u,s,v] = svt(mat,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.190438 seconds.
-</pre><p>Run time of svds for top 10 singular value decomposition:</p><pre class="codeinput">tic;
-[su,ss,sv] = svds(mat,10);
+</pre><pre class="codeoutput">Elapsed time is 0.229161 seconds.
+</pre><p>Top 25 singular values/vectors by Matlab svds</p><pre class="codeinput">tic;
+[su,ss,sv] = svds(mat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.060717 seconds.
-</pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(mat-u*s*v',<span class="string">'fro'</span>)/norm(mat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.8928
+</pre><pre class="codeoutput">Elapsed time is 0.171670 seconds.
+</pre><p>Full svd</p><pre class="codeinput">tic;
+[fu,fs,fv] = svd(full(mat));
+toc;
+</pre><pre class="codeoutput">Elapsed time is 61.233371 seconds.
+</pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   3.3306e-14
 
-</pre><p>Accuracy of solutions provided by svds</p><pre class="codeinput">disp(norm(mat-su*ss*sv',<span class="string">'fro'</span>)/norm(mat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.8928
+</pre><p>Accuracy of solutions provided by svds</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   3.8697e-14
 
-</pre><h2>Singular value decomposition for structured matrix<a name="10"></a></h2><pre class="codeinput">clear;
+</pre><h2>Singular value decomposition for structured (sparse + low rank) matrix<a name="11"></a></h2><pre class="codeinput">clear;
 <span class="comment">% Reset random seed</span>
 s = RandStream(<span class="string">'mt19937ar'</span>,<span class="string">'Seed'</span>,2014);
 RandStream.setGlobalStream(s);
-</pre><p>Read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection</p><pre class="codeinput">data = load(<span class="string">'tols1090.mat'</span>);
-mat = data.tols1090;
+</pre><p>Read in sparse matrices downloaded from The University of Florida Sparse Matrix Collection</p><pre class="codeinput">data = load(<span class="string">'mhd4800b.mat'</span>);
+mat = data.mhd4800b;
 </pre><p>Generation of structured matrix (sparse plus low rank)</p><pre class="codeinput">m = size(mat,1);
 n = size(mat,2);
-l = randn(m,20);
-r = randn(n,20);
-lr = l*r';                <span class="comment">% generation of low rank matrix</span>
-smat = mat + lr;          <span class="comment">% sparse + low rank</span>
-disp(rank(lr));           <span class="comment">% rank</span>
+L = randn(m,20);
+R = randn(n,20);
+LR = L*R';                <span class="comment">% generation of low rank matrix</span>
+smat = mat + LR;          <span class="comment">% sparse + low rank</span>
+disp(rank(LR));           <span class="comment">% rank</span>
 </pre><pre class="codeoutput">    20
 
-</pre><p>Run time of svt for top 10 singular value decomposition</p><pre class="codeinput">tic;
-[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'k'</span>,10);
+</pre><p>Top 25 singular values/vectors by svt. Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
+[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.216681 seconds.
-</pre><p>Run time of svds for top 10 singular value decomposition</p><pre class="codeinput">tic;
-[su,ss,sv] = svds(smat,10);
+</pre><pre class="codeoutput">Elapsed time is 0.546911 seconds.
+</pre><p>Top 25 singular values/vectors by Matlab's svds</p><pre class="codeinput">tic;
+[su,ss,sv] = svds(smat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.727453 seconds.
-</pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(smat-u*s*v',<span class="string">'fro'</span>)/norm(smat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.8928
+</pre><pre class="codeoutput">Elapsed time is 22.772104 seconds.
+</pre><p>Full svd</p><pre class="codeinput">tic;
+[fu,fs,fv] = svd(full(smat));
+toc;
+</pre><pre class="codeoutput">Elapsed time is 43.424232 seconds.
+</pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   2.9203e-09
 
-</pre><p>Accuracy of solutions provided by svds</p><pre class="codeinput">disp(norm(smat-su*ss*sv',<span class="string">'fro'</span>)/norm(smat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.8928
+</pre><p>Accuracy of solutions provided by svds</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   5.9025e-09
 
-</pre><h2>Singular value thresholding for sparse matrix<a name="17"></a></h2><pre class="codeinput">clear;
+</pre><h2>Singular value thresholding for sparse matrix<a name="19"></a></h2><pre class="codeinput">clear;
 <span class="comment">% Reset random seed</span>
 s = RandStream(<span class="string">'mt19937ar'</span>,<span class="string">'Seed'</span>,2014);
 RandStream.setGlobalStream(s);
@@ -130,38 +138,63 @@ mat = data.mhd4800b;
 </pre><p>Size of matrix:</p><pre class="codeinput">disp(size(mat));
 </pre><pre class="codeoutput">        4800        4800
 
-</pre><p>Sparsity of matrix</p><pre class="codeinput">disp(1-nnz(mat)/numel(mat));
-</pre><pre class="codeoutput">    0.9988
+</pre><p>Sparsity of matrix</p><pre class="codeinput">disp(nnz(mat)/numel(mat));
+</pre><pre class="codeoutput">    0.0012
 
-</pre><p>Run time of svt for singular value thresholding by applying deflation method</p><pre class="codeinput">tic;
-[u,s,v] = svt(mat,<span class="string">'lambda'</span>,4.152050e-02);
+</pre><p>Find all singular values &gt;= 0.1 by svt (deflation method)</p><pre class="codeinput">tic;
+[u,s,v] = svt(mat,<span class="string">'lambda'</span>,0.1);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 5.660300 seconds.
-</pre><p>Run time of svd for full singular value thresholding</p><pre class="codeinput">fmat = full(mat);
+display(size(s));
+</pre><pre class="codeoutput">Elapsed time is 1.395102 seconds.
+
+ans =
+
+    48    48
+
+</pre><p>It's faster if we have a good guess of how many singular values above threshold</p><pre class="codeinput">tic;
+[~,ks,~] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'k'</span>,45);
+toc;
+display(size(ks));
+</pre><pre class="codeoutput">Elapsed time is 0.721873 seconds.
+
+ans =
+
+    48    48
+
+</pre><p>Find all singular values &gt;= 0.1 by svt (succession method)</p><pre class="codeinput">tic;
+[iu,is,iv] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'method'</span>,<span class="string">'succession'</span>);
+toc;
+display(size(is));
+</pre><pre class="codeoutput">Elapsed time is 2.129568 seconds.
+
+ans =
+
+    48    48
+
+</pre><p>Find all singular values &gt;= 0.1 by full svd</p><pre class="codeinput">fmat = full(mat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss&lt;=4.152050e-02);
+i = find(dss&lt;=0.1);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 63.249997 seconds.
-</pre><p>Run time of svt for singular value thresholding by applying succession method</p><pre class="codeinput">tic;
-[iu,is,iv] = svt(mat,<span class="string">'lambda'</span>,4.152050e-02,<span class="string">'method'</span>,<span class="string">'succession'</span>);
-toc;
-</pre><pre class="codeoutput">Elapsed time is 9.249550 seconds.
-</pre><p>Accuracy of solutions provided by svt based on deflation method</p><pre class="codeinput">disp(norm(mat-u*s*v',<span class="string">'fro'</span>)/norm(mat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.0760
+display(size(ss));
+</pre><pre class="codeoutput">Elapsed time is 61.430289 seconds.
 
-</pre><p>Accuracy of solutions provided by svd</p><pre class="codeinput">disp(norm(fmat-su*ss*sv',<span class="string">'fro'</span>)/norm(fmat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.0760
+ans =
 
-</pre><p>Accuracy of solutions provided by svt based on succession method</p><pre class="codeinput">disp(norm(mat-iu*is*iv',<span class="string">'fro'</span>)/norm(mat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">    0.0760
+    48    48
 
-</pre><h2>Singular value thresholding for structured matrix<a name="27"></a></h2><pre class="codeinput">clear;
+</pre><p>Accuracy of solutions provided by svt deflation method</p><pre class="codeinput">disp(norm(u*s*v'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   2.1590e-11
+
+</pre><p>Accuracy of solutions provided by svt succession method</p><pre class="codeinput">disp(norm(iu*is*iv'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   2.6617e-13
+
+</pre><h2>Singular value thresholding for structured (sparse + low rank) matrix<a name="29"></a></h2><pre class="codeinput">clear;
 <span class="comment">% Reset random seed</span>
 s = RandStream(<span class="string">'mt19937ar'</span>,<span class="string">'Seed'</span>,2014);
 RandStream.setGlobalStream(s);
@@ -169,62 +202,85 @@ RandStream.setGlobalStream(s);
 mat = data.mhd4800b;
 </pre><p>Generation of structured matrix (sparse plus low rank)</p><pre class="codeinput">m = size(mat,1);
 n = size(mat,2);
-l = randn(m,20);
-r = randn(n,20);
-lr = l*r';                <span class="comment">% generation of low rank matrix</span>
-smat = mat + lr;          <span class="comment">% sparse + low rank</span>
-disp(rank(lr));           <span class="comment">% rank</span>
+L = randn(m,20);
+R = randn(n,20);
+LR = L*R';                <span class="comment">% generation of low rank matrix</span>
+smat = mat + LR;          <span class="comment">% sparse + low rank</span>
+disp(rank(LR));           <span class="comment">% rank</span>
 </pre><pre class="codeoutput">    20
 
-</pre><p>Run time of svt for singular value thresholding by applying deflation method</p><pre class="codeinput">tic;
-[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,4.152050e-02);
+</pre><p>Find all singular values &gt;= 0.1 by svt (deflation method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
+[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1);
 toc;
-</pre><pre class="codeoutput">Warning: eflag is 1, turn to sucession with warmstart. 
-Elapsed time is 20.459946 seconds.
-</pre><p>Run time of svd for full singular value thresholding</p><pre class="codeinput">fmat = full(smat);
+display(size(s));
+</pre><pre class="codeoutput">Warning: eflag is 1, refresh with warm start. 
+Elapsed time is 15.130182 seconds.
+
+ans =
+
+    68    68
+
+</pre><p>It's faster if we have a good guess of how many singular values above threshold</p><pre class="codeinput">tic;
+[~,ks,~] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1,<span class="string">'k'</span>,65);
+toc;
+display(size(ks));
+</pre><pre class="codeoutput">Elapsed time is 5.674604 seconds.
+
+ans =
+
+    68    68
+
+</pre><p>Find all singular values &gt;= 0.1 by svt (succession method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
+[iu,is,iv] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1,<span class="keyword">...</span>
+<span class="string">'method'</span>,<span class="string">'succession'</span>);
+toc;
+display(size(is));
+</pre><pre class="codeoutput">Elapsed time is 12.640348 seconds.
+
+ans =
+
+    68    68
+
+</pre><p>Find all singular values &gt;= 0.1 by full svd</p><pre class="codeinput">fmat = full(smat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss&lt;=4.152050e-02);
+i = find(dss&lt;=0.1);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 44.005369 seconds.
-</pre><p>Run time of svt for singular value thresholding by applying succession method</p><pre class="codeinput">tic;
-[iu,is,iv] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,4.152050e-02,<span class="keyword">...</span>
-<span class="string">'method'</span>,<span class="string">'succession'</span>);
-toc;
-</pre><pre class="codeoutput">Elapsed time is 35.670340 seconds.
-</pre><p>Accuracy of solutions provided by svt based on deflation method</p><pre class="codeinput">disp(norm(smat-u*s*v',<span class="string">'fro'</span>)/norm(smat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">   1.8602e-05
+display(size(ss));
+</pre><pre class="codeoutput">Elapsed time is 44.102634 seconds.
 
-</pre><p>Accuracy of solutions provided by svd</p><pre class="codeinput">disp(norm(fmat-su*ss*sv',<span class="string">'fro'</span>)/norm(fmat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">   1.8602e-05
+ans =
 
-</pre><p>Accuracy of solutions provided by svt based on succession method</p><pre class="codeinput">disp(norm(smat-iu*is*iv',<span class="string">'fro'</span>)/norm(smat,<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">   1.8602e-05
+    68    68
 
-</pre><p>Subfunction for utilizing matrix structure of sparse plus low rank</p><pre class="codeinput"><span class="keyword">function</span> MAvec = MAtimesVec(vec, varargin)
-    argin = inputParser;
-    argin.addRequired(<span class="string">'vec'</span>);
-    argin.addOptional(<span class="string">'trans'</span>, false, @islogical);
-    argin.parse(vec,varargin{:});
+</pre><p>Accuracy of solutions provided by svt deflation method</p><pre class="codeinput">disp(norm(u*s*v'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   4.2698e-10
 
-    trans = argin.Results.trans;
+</pre><p>Accuracy of solutions provided by svt succession method</p><pre class="codeinput">disp(norm(iu*is*iv'- su*ss*sv',<span class="string">'fro'</span>));
+</pre><pre class="codeoutput">   5.5977e-10
+
+</pre><p>Subfunction for exploiting matrix structure of sparse plus low rank</p><pre class="codeinput"><span class="keyword">function</span> MAvec = MAtimesVec(vec, trans)
 
     <span class="keyword">if</span> trans
-       MAvec = (vec'*mat)' + r*(vec'*l)';
+       MAvec = (vec'*mat)' + R*(vec'*L)';
     <span class="keyword">else</span>
-       MAvec = mat*vec + l*(r'*vec);
+       MAvec = mat*vec + L*(R'*vec);
     <span class="keyword">end</span>
 
 <span class="keyword">end</span>
 </pre><pre class="codeinput"><span class="keyword">end</span>
 </pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
+%%
+% We need a functional environment so that the MAtimesVec subfunction can
+% access variables in workspace
 function[] = demo_svt
+
 %% Singular value decomposition for sparse matrix
 
 clear;
@@ -235,8 +291,8 @@ RandStream.setGlobalStream(s);
 %%
 % Read in sparse matrices downloaded from The University of Florida Sparse
 % Matrix Collection
-data = load('tols1090.mat');
-mat = data.tols1090;
+data = load('mhd4800b.mat');
+mat = data.mhd4800b;
 
 %%
 % Size of matrix
@@ -247,26 +303,32 @@ disp(size(mat));
 disp(nnz(mat)/numel(mat)); 
 
 %%
-% Run time of svt for top 10 singular value decomposition: 
+% Top 25 singular values/vectors by svt
 tic;
-[u,s,v] = svt(mat,'k',10);
+[u,s,v] = svt(mat,'k',25);
 toc;
 
 %%
-% Run time of svds for top 10 singular value decomposition: 
+% Top 25 singular values/vectors by Matlab svds
 tic;
-[su,ss,sv] = svds(mat,10);
+[su,ss,sv] = svds(mat,25);
+toc;
+
+%%
+% Full svd
+tic;
+[fu,fs,fv] = svd(full(mat));
 toc;
 
 %%
 % Accuracy of solutions provided by svt
-disp(norm(mat-u*s*v','fro')/norm(mat,'fro')); 
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v','fro')); 
 
 %%
 % Accuracy of solutions provided by svds
-disp(norm(mat-su*ss*sv','fro')/norm(mat,'fro'));
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv','fro')); 
 
-%% Singular value decomposition for structured matrix
+%% Singular value decomposition for structured (sparse + low rank) matrix
 
 clear;
 % Reset random seed
@@ -276,38 +338,45 @@ RandStream.setGlobalStream(s);
 %%
 % Read in sparse matrices downloaded from The University of Florida Sparse
 % Matrix Collection
-data = load('tols1090.mat');
-mat = data.tols1090;
+data = load('mhd4800b.mat');
+mat = data.mhd4800b;
 
 %%
 % Generation of structured matrix (sparse plus low rank)
 m = size(mat,1);
 n = size(mat,2);
-l = randn(m,20);  
-r = randn(n,20);
-lr = l*r';                % generation of low rank matrix
-smat = mat + lr;          % sparse + low rank
-disp(rank(lr));           % rank 
+L = randn(m,20);  
+R = randn(n,20);
+LR = L*R';                % generation of low rank matrix
+smat = mat + LR;          % sparse + low rank
+disp(rank(LR));           % rank 
 
 %%
-% Run time of svt for top 10 singular value decomposition
+% Top 25 singular values/vectors by svt. Function MAtimesVec is defined at
+% end of this file.
 tic;
-[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'k',10);
+[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'k',25);
 toc;
 
 %%
-% Run time of svds for top 10 singular value decomposition
+% Top 25 singular values/vectors by Matlab's svds
 tic;
-[su,ss,sv] = svds(smat,10);
+[su,ss,sv] = svds(smat,25);
+toc;
+
+%%
+% Full svd
+tic;
+[fu,fs,fv] = svd(full(smat));
 toc;
 
 %%
 % Accuracy of solutions provided by svt
-disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v','fro')); 
 
 %%
 % Accuracy of solutions provided by svds
-disp(norm(smat-su*ss*sv','fro')/norm(smat,'fro'));
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv','fro')); 
 
 %% Singular value thresholding for sparse matrix
 
@@ -328,48 +397,53 @@ disp(size(mat));
 
 %%
 % Sparsity of matrix
-disp(1-nnz(mat)/numel(mat));
+disp(nnz(mat)/numel(mat));
 
 %%
-% Run time of svt for singular value thresholding by applying deflation
-% method
+% Find all singular values >= 0.1 by svt (deflation method)
 tic;
-[u,s,v] = svt(mat,'lambda',4.152050e-02);
+[u,s,v] = svt(mat,'lambda',0.1);
 toc;
+display(size(s));
 
 %%
-% Run time of svd for full singular value thresholding 
+% It's faster if we have a good guess of how many singular values above
+% threshold
+tic;
+[~,ks,~] = svt(mat,'lambda',0.1,'k',45);
+toc;
+display(size(ks));
+
+%%
+% Find all singular values >= 0.1 by svt (succession method)
+tic;
+[iu,is,iv] = svt(mat,'lambda',0.1,'method','succession');
+toc;
+display(size(is));
+
+%%
+% Find all singular values >= 0.1 by full svd
 fmat = full(mat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss<=4.152050e-02);
+i = find(dss<=0.1);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
+display(size(ss));
 
 %%
-% Run time of svt for singular value thresholding by applying succession
-% method
-tic;
-[iu,is,iv] = svt(mat,'lambda',4.152050e-02,'method','succession');
-toc;
+% Accuracy of solutions provided by svt deflation method
+disp(norm(u*s*v'- su*ss*sv','fro')); 
 
 %%
-% Accuracy of solutions provided by svt based on deflation method 
-disp(norm(mat-u*s*v','fro')/norm(mat,'fro'));
+% Accuracy of solutions provided by svt succession method
+disp(norm(iu*is*iv'- su*ss*sv','fro')); 
 
-%%
-% Accuracy of solutions provided by svd  
-disp(norm(fmat-su*ss*sv','fro')/norm(fmat,'fro'));
-
-%%
-% Accuracy of solutions provided by svt based on succession method
-disp(norm(mat-iu*is*iv','fro')/norm(mat,'fro'));
-
-%% Singular value thresholding for structured matrix 
+%% Singular value thresholding for structured (sparse + low rank) matrix 
 
 clear;
 % Reset random seed
@@ -386,66 +460,67 @@ mat = data.mhd4800b;
 % Generation of structured matrix (sparse plus low rank)
 m = size(mat,1);
 n = size(mat,2);
-l = randn(m,20);  
-r = randn(n,20);
-lr = l*r';                % generation of low rank matrix
-smat = mat + lr;          % sparse + low rank
-disp(rank(lr));           % rank
+L = randn(m,20);  
+R = randn(n,20);
+LR = L*R';                % generation of low rank matrix
+smat = mat + LR;          % sparse + low rank
+disp(rank(LR));           % rank
 
 %%
-% Run time of svt for singular value thresholding by applying deflation
-% method
+% Find all singular values >= 0.1 by svt (deflation method). Function
+% MAtimesVec is defined at end of this file.
 tic;
-[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02);
+[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1);
 toc;
+display(size(s));
 
 %%
-% Run time of svd for full singular value thresholding 
+% It's faster if we have a good guess of how many singular values above
+% threshold
+tic;
+[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,'k',65);
+toc;
+display(size(ks));
+
+%%
+% Find all singular values >= 0.1 by svt (succession method). Function
+% MAtimesVec is defined at end of this file.
+tic;
+[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,...
+'method','succession');
+toc;
+display(size(is));
+
+%%
+% Find all singular values >= 0.1 by full svd
 fmat = full(smat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss<=4.152050e-02);
+i = find(dss<=0.1);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
+display(size(ss));
 
 %%
-% Run time of svt for singular value thresholding by applying succession
-% method
-tic;
-[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',4.152050e-02,...
-'method','succession');
-toc;
+% Accuracy of solutions provided by svt deflation method
+disp(norm(u*s*v'- su*ss*sv','fro')); 
 
 %%
-% Accuracy of solutions provided by svt based on deflation method 
-disp(norm(smat-u*s*v','fro')/norm(smat,'fro'));
+% Accuracy of solutions provided by svt succession method
+disp(norm(iu*is*iv'- su*ss*sv','fro')); 
 
 %%
-% Accuracy of solutions provided by svd  
-disp(norm(fmat-su*ss*sv','fro')/norm(fmat,'fro'));
-
-%%
-% Accuracy of solutions provided by svt based on succession method 
-disp(norm(smat-iu*is*iv','fro')/norm(smat,'fro'));
-
-%%
-% Subfunction for utilizing matrix structure of sparse plus low rank
-function MAvec = MAtimesVec(vec, varargin)
-    argin = inputParser;
-    argin.addRequired('vec');
-    argin.addOptional('trans', false, @islogical);
-    argin.parse(vec,varargin{:});
-
-    trans = argin.Results.trans;
+% Subfunction for exploiting matrix structure of sparse plus low rank
+function MAvec = MAtimesVec(vec, trans)
 
     if trans
-       MAvec = (vec'*mat)' + r*(vec'*l)';
+       MAvec = (vec'*mat)' + R*(vec'*L)';
     else
-       MAvec = mat*vec + l*(r'*vec);
+       MAvec = mat*vec + L*(R'*vec);
     end
     
 end
