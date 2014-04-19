@@ -25,15 +25,15 @@ disp(size(mat));
 disp(nnz(mat)/numel(mat)); 
 
 %%
-% Top 10 singular values/vectors by svt
+% Top 25 singular values/vectors by svt
 tic;
-[u,s,v] = svt(mat,'k',10);
+[u,s,v] = svt(mat,'k',25);
 toc;
 
 %%
-% Top 10 singular values/vectors by Matlab svds
+% Top 25 singular values/vectors by Matlab svds
 tic;
-[su,ss,sv] = svds(mat,10);
+[su,ss,sv] = svds(mat,25);
 toc;
 
 %%
@@ -44,11 +44,11 @@ toc;
 
 %%
 % Accuracy of solutions provided by svt
-disp(norm(fu(:,1:10)*fs(1:10,1:10)*fv(:,1:10)'- u*s*v','fro')); 
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v','fro')); 
 
 %%
 % Accuracy of solutions provided by svds
-disp(norm(fu(:,1:10)*fs(1:10,1:10)*fv(:,1:10)'- su*ss*sv','fro')); 
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv','fro')); 
 
 %% Singular value decomposition for structured (sparse + low rank) matrix
 
@@ -74,16 +74,16 @@ smat = mat + LR;          % sparse + low rank
 disp(rank(LR));           % rank 
 
 %%
-% Top 10 singular values/vectors by svt. Function MAtimesVec is defined at
+% Top 25 singular values/vectors by svt. Function MAtimesVec is defined at
 % end of this file.
 tic;
-[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'k',10);
+[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'k',25);
 toc;
 
 %%
-% Top 10 singular values/vectors by Matlab's svds
+% Top 25 singular values/vectors by Matlab's svds
 tic;
-[su,ss,sv] = svds(smat,10);
+[su,ss,sv] = svds(smat,25);
 toc;
 
 %%
@@ -94,11 +94,11 @@ toc;
 
 %%
 % Accuracy of solutions provided by svt
-disp(norm(fu(:,1:10)*fs(1:10,1:10)*fv(:,1:10)'- u*s*v','fro')); 
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v','fro')); 
 
 %%
 % Accuracy of solutions provided by svds
-disp(norm(fu(:,1:10)*fs(1:10,1:10)*fv(:,1:10)'- su*ss*sv','fro')); 
+disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- su*ss*sv','fro')); 
 
 %% Singular value thresholding for sparse matrix
 
