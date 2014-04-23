@@ -71,7 +71,6 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                % generation of low rank matrix
 smat = mat + LR;          % sparse + low rank
-disp(rank(LR));           % rank 
 
 %%
 % Top 25 singular values/vectors by svt. Function MAtimesVec is defined at
@@ -186,13 +185,12 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                % generation of low rank matrix
 smat = mat + LR;          % sparse + low rank
-disp(rank(LR));           % rank
 
 %%
-% Find all singular values >= 0.1 by svt (deflation method). Function
+% Find all singular values >= 0.2 by svt (deflation method). Function
 % MAtimesVec is defined at end of this file.
 tic;
-[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1);
+[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2);
 toc;
 display(size(s));
 
@@ -200,26 +198,26 @@ display(size(s));
 % It's faster if we have a good guess of how many singular values above
 % threshold
 tic;
-[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,'k',65);
+[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,'k',65);
 toc;
 display(size(ks));
 
 %%
-% Find all singular values >= 0.1 by svt (succession method). Function
+% Find all singular values >= 0.2 by svt (succession method). Function
 % MAtimesVec is defined at end of this file.
 tic;
-[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,...
+[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,...
 'method','succession');
 toc;
 display(size(is));
 
 %%
-% Find all singular values >= 0.1 by full svd
+% Find all singular values >= 0.2 by full svd
 fmat = full(smat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss<=0.1);
+i = find(dss<=0.2);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
