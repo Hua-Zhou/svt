@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>demo_svt</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-04-19"><meta name="DC.source" content="demo_svt.m"><style type="text/css">
+      --><title>demo_svt</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-04-27"><meta name="DC.source" content="demo_svt.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -81,15 +81,15 @@ mat = data.mhd4800b;
 </pre><p>Top 25 singular values/vectors by svt</p><pre class="codeinput">tic;
 [u,s,v] = svt(mat,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.229161 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.166530 seconds.
 </pre><p>Top 25 singular values/vectors by Matlab svds</p><pre class="codeinput">tic;
 [su,ss,sv] = svds(mat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.171670 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.167794 seconds.
 </pre><p>Full svd</p><pre class="codeinput">tic;
 [fu,fs,fv] = svd(full(mat));
 toc;
-</pre><pre class="codeoutput">Elapsed time is 61.233371 seconds.
+</pre><pre class="codeoutput">Elapsed time is 63.003841 seconds.
 </pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
 </pre><pre class="codeoutput">   3.3306e-14
 
@@ -108,21 +108,18 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                <span class="comment">% generation of low rank matrix</span>
 smat = mat + LR;          <span class="comment">% sparse + low rank</span>
-disp(rank(LR));           <span class="comment">% rank</span>
-</pre><pre class="codeoutput">    20
-
 </pre><p>Top 25 singular values/vectors by svt. Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
 [u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.546911 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.517414 seconds.
 </pre><p>Top 25 singular values/vectors by Matlab's svds</p><pre class="codeinput">tic;
 [su,ss,sv] = svds(smat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 22.772104 seconds.
+</pre><pre class="codeoutput">Elapsed time is 23.421673 seconds.
 </pre><p>Full svd</p><pre class="codeinput">tic;
 [fu,fs,fv] = svd(full(smat));
 toc;
-</pre><pre class="codeoutput">Elapsed time is 43.424232 seconds.
+</pre><pre class="codeoutput">Elapsed time is 45.233519 seconds.
 </pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
 </pre><pre class="codeoutput">   2.9203e-09
 
@@ -145,7 +142,7 @@ mat = data.mhd4800b;
 [u,s,v] = svt(mat,<span class="string">'lambda'</span>,0.1);
 toc;
 display(size(s));
-</pre><pre class="codeoutput">Elapsed time is 1.395102 seconds.
+</pre><pre class="codeoutput">Elapsed time is 1.370397 seconds.
 
 ans =
 
@@ -155,7 +152,7 @@ ans =
 [~,ks,~] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'k'</span>,45);
 toc;
 display(size(ks));
-</pre><pre class="codeoutput">Elapsed time is 0.721873 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.669418 seconds.
 
 ans =
 
@@ -165,7 +162,7 @@ ans =
 [iu,is,iv] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'method'</span>,<span class="string">'succession'</span>);
 toc;
 display(size(is));
-</pre><pre class="codeoutput">Elapsed time is 2.129568 seconds.
+</pre><pre class="codeoutput">Elapsed time is 2.294044 seconds.
 
 ans =
 
@@ -182,7 +179,7 @@ sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
 display(size(ss));
-</pre><pre class="codeoutput">Elapsed time is 61.430289 seconds.
+</pre><pre class="codeoutput">Elapsed time is 63.262630 seconds.
 
 ans =
 
@@ -206,63 +203,60 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                <span class="comment">% generation of low rank matrix</span>
 smat = mat + LR;          <span class="comment">% sparse + low rank</span>
-disp(rank(LR));           <span class="comment">% rank</span>
-</pre><pre class="codeoutput">    20
-
-</pre><p>Find all singular values &gt;= 0.1 by svt (deflation method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
-[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1);
+</pre><p>Find all singular values &gt;= 0.2 by svt (deflation method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
+[u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.2);
 toc;
 display(size(s));
 </pre><pre class="codeoutput">Warning: eflag is 1, refresh with warm start. 
-Elapsed time is 15.130182 seconds.
+Elapsed time is 2.841878 seconds.
 
 ans =
 
-    68    68
+    48    48
 
 </pre><p>It's faster if we have a good guess of how many singular values above threshold</p><pre class="codeinput">tic;
-[~,ks,~] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1,<span class="string">'k'</span>,65);
+[~,ks,~] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.2,<span class="string">'k'</span>,45);
 toc;
 display(size(ks));
-</pre><pre class="codeoutput">Elapsed time is 5.674604 seconds.
+</pre><pre class="codeoutput">Elapsed time is 2.296409 seconds.
 
 ans =
 
-    68    68
+    48    48
 
-</pre><p>Find all singular values &gt;= 0.1 by svt (succession method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
-[iu,is,iv] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.1,<span class="keyword">...</span>
+</pre><p>Find all singular values &gt;= 0.2 by svt (succession method). Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
+[iu,is,iv] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.2,<span class="keyword">...</span>
 <span class="string">'method'</span>,<span class="string">'succession'</span>);
 toc;
 display(size(is));
-</pre><pre class="codeoutput">Elapsed time is 12.640348 seconds.
+</pre><pre class="codeoutput">Elapsed time is 13.330870 seconds.
 
 ans =
 
-    68    68
+    48    48
 
-</pre><p>Find all singular values &gt;= 0.1 by full svd</p><pre class="codeinput">fmat = full(smat);
+</pre><p>Find all singular values &gt;= 0.2 by full svd</p><pre class="codeinput">fmat = full(smat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss&lt;=0.1);
+i = find(dss&lt;=0.2);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
 display(size(ss));
-</pre><pre class="codeoutput">Elapsed time is 44.102634 seconds.
+</pre><pre class="codeoutput">Elapsed time is 44.892931 seconds.
 
 ans =
 
-    68    68
+    48    48
 
 </pre><p>Accuracy of solutions provided by svt deflation method</p><pre class="codeinput">disp(norm(u*s*v'- su*ss*sv',<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">   4.2698e-10
+</pre><pre class="codeoutput">   2.5538e-10
 
 </pre><p>Accuracy of solutions provided by svt succession method</p><pre class="codeinput">disp(norm(iu*is*iv'- su*ss*sv',<span class="string">'fro'</span>));
-</pre><pre class="codeoutput">   5.5977e-10
+</pre><pre class="codeoutput">   7.1664e-10
 
 </pre><p>Subfunction for exploiting matrix structure of sparse plus low rank</p><pre class="codeinput"><span class="keyword">function</span> MAvec = MAtimesVec(vec, trans)
 
@@ -349,7 +343,6 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                % generation of low rank matrix
 smat = mat + LR;          % sparse + low rank
-disp(rank(LR));           % rank 
 
 %%
 % Top 25 singular values/vectors by svt. Function MAtimesVec is defined at
@@ -464,13 +457,12 @@ L = randn(m,20);
 R = randn(n,20);
 LR = L*R';                % generation of low rank matrix
 smat = mat + LR;          % sparse + low rank
-disp(rank(LR));           % rank
 
 %%
-% Find all singular values >= 0.1 by svt (deflation method). Function
+% Find all singular values >= 0.2 by svt (deflation method). Function
 % MAtimesVec is defined at end of this file.
 tic;
-[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1);
+[u,s,v] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2);
 toc;
 display(size(s));
 
@@ -478,26 +470,26 @@ display(size(s));
 % It's faster if we have a good guess of how many singular values above
 % threshold
 tic;
-[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,'k',65);
+[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,'k',45);
 toc;
 display(size(ks));
 
 %%
-% Find all singular values >= 0.1 by svt (succession method). Function
+% Find all singular values >= 0.2 by svt (succession method). Function
 % MAtimesVec is defined at end of this file.
 tic;
-[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.1,...
+[iu,is,iv] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,...
 'method','succession');
 toc;
 display(size(is));
 
 %%
-% Find all singular values >= 0.1 by full svd
+% Find all singular values >= 0.2 by full svd
 fmat = full(smat);
 tic;
 [su,ss,sv] = svd(fmat);
 dss = diag(ss);
-i = find(dss<=0.1);
+i = find(dss<=0.2);
 su = su(:,1:i-1);
 dss = dss(1:i-1);
 sv = sv(:,1:i-1);

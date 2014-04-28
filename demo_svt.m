@@ -198,7 +198,7 @@ display(size(s));
 % It's faster if we have a good guess of how many singular values above
 % threshold
 tic;
-[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,'k',65);
+[~,ks,~] = svt(@MAtimesVec,'m',m,'n',n,'lambda',0.2,'k',45);
 toc;
 display(size(ks));
 
