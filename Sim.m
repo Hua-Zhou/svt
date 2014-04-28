@@ -35,10 +35,8 @@ fprintf('The sparsity of the matrix is %d\n', ...
 records = zeros(2,rep);            % Store the run time
 
 switch choice 
-    case 'svds' %vs svds with sparse matrix
-        fprintf('Compared with svds:\n');
-        opts.tol = eps;
-        opts.maxit = 300;
+    case 'svd' %vs svd with sparse matrix
+        fprintf('Compared with svd:\n');
 
         for j = 1:rep
            tic;
@@ -48,7 +46,25 @@ switch choice
                norm(data-u*s*v','fro')/norm(data,'fro'));
 
            tic;
-           [su,ss,sv] = svds(data,6,'L',opts);
+           [su,ss,sv] = svd(full(data));
+           records(2,j) = toc;
+           fprintf('Accuracy of svd: %d\n', ...
+               norm(data-su(:,1:6)*ss(1:6,1:6)*sv(:,1:6)',...
+               'fro')/norm(data,'fro'));
+        end
+        
+    case 'svds' %vs svds with sparse matrix
+        fprintf('Compared with svds:\n');
+
+        for j = 1:rep
+           tic;
+           [u,s,v] = svt(data);
+           records(1,j) = toc;
+           fprintf('Accuracy of svt: %d\n', ...
+               norm(data-u*s*v','fro')/norm(data,'fro'));
+
+           tic;
+           [su,ss,sv] = svds(data,6);
            records(2,j) = toc;
            fprintf('Accuracy of svds: %d\n', ...
                norm(data-su*ss*sv','fro')/norm(data,'fro'));
@@ -64,8 +80,8 @@ switch choice
         MA = data;
         new_data = MA + lr;    % Sparse + low rank
         
-        opts.tol = eps;
-        opts.maxit = 300;
+%         opts.tol = eps;
+%         opts.maxit = 300;
 
         for j = 1:rep
            tic;
@@ -75,7 +91,7 @@ switch choice
                norm(new_data-u*s*v','fro')/norm(new_data,'fro'));
 
            tic;
-           [su,ss,sv] = svds(new_data,6,'L',opts);
+           [su,ss,sv] = svds(new_data,6);
            records(2,j) = toc;
            fprintf('Accuracy of svds: %d\n', ...
                norm(new_data-su*ss*sv','fro')/norm(new_data,'fro'));
@@ -226,9 +242,9 @@ records = records(:,2:rep)';
 fprintf('The mean of run time of svt is %d\n',mean(records(:,1)));
 fprintf('The mean of run time of objective function is %d\n', ...
     mean(records(:,2)));
-fprintf('The se of run time of svt is %d\n',std(records(:,1))/sqrt(rep-2));
+fprintf('The se of run time of svt is %d\n',std(records(:,1))/sqrt(rep-1));
 fprintf('The se of run time of objective function is %d\n', ...
-    std(records(:,2))/sqrt(rep-2));
+    std(records(:,2))/sqrt(rep-1));
 fprintf('\n');
 
 

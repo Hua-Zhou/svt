@@ -107,11 +107,6 @@ stats.rank = length(s);
 
 % Subfunction for utilizing matrix structure of sparse plus low rank
 function MAvec = MAtimesVec(vec, trans)
-%     if trans
-%          MAvec = (vec'*D)' + (vec'*Y)';
-%     else
-%          MAvec = D*vec + Y*vec;
-%     end 
     if iter == 1
        if trans
          MAvec = (vec'*D)' + (vec'*Y)';

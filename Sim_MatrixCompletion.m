@@ -5,7 +5,7 @@ argin.addRequired('p1');
 argin.addRequired('p2');
 argin.addParamValue('rep',5,@(x) x>0);
 argin.addParamValue('seed',2014,@(x) x>0);
-argin.addParamValue('rank',100,@(x) x>0);
+argin.addParamValue('rank',50,@(x) x>0);
 argin.addParamValue('prop',0.95,@(x) x>0 && x<1);
 argin.addParamValue('gridpts',50,@(x) x>0);
 argin.addParamValue('num',5,@(x) x>0);
@@ -29,9 +29,9 @@ missingidx = rand(p1,p2)<missingprop;
 Mobs = M;
 Mobs(missingidx) = nan;
 
-records = zeros(3,rep);     
+records = zeros(3,rep);     % Keeper
 % find max lambda for nuclear norm regularization
-[~,stats] = matrix_impute_MM(Mobs,inf);
+[~,stats] = MatrixCompletion_MM(Mobs,inf);
 maxlambda = stats.maxlambda;
 disp(maxlambda);
 
@@ -114,12 +114,12 @@ end
 records = records(:,1:rep)';  % Discard the 1st rep?
 fprintf('**********Summary**********\n');
 fprintf('The mean of run time of stru_svt is %d\n',mean(records(:,1)));
-fprintf('The mean of run time of svt is %d\n', mean(records(:,2)));
+fprintf('The mean of run time of non_stru_svt is %d\n', mean(records(:,2)));
 fprintf('The mean of run time of full svt is %d\n', mean(records(:,3)));
 
-fprintf('The se of run time of stru_svt is %d\n',std(records(:,1))/sqrt(rep-1));
-fprintf('The se of run time of svt is %d\n', std(records(:,2))/sqrt(rep-1));
-fprintf('The se of run time of full svt is %d\n', std(records(:,3))/sqrt(rep-1));
+fprintf('The se of run time of stru_svt is %d\n',std(records(:,1))/sqrt(rep));
+fprintf('The se of run time of non_stru_svt is %d\n', std(records(:,2))/sqrt(rep));
+fprintf('The se of run time of full svt is %d\n', std(records(:,3))/sqrt(rep));
 fprintf('\n');
 
 end
