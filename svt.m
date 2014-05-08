@@ -1,15 +1,15 @@
 function[U,S,V,flag] = svt(A,varargin)
-% SVT Singular value thresholding
-%   SVT computes the singular values exceeding user defined threshold and
+% svt Singular value thresholding
+%   svt computes the singular values exceeding user defined threshold and
 %   associated singular vectors. It can also be used for top singular value
-%   decomposition. It handles sparse matrix and other sturctue matrix. In
+%   decomposition. It handles sparse matrix and other sturctued matrix. In
 %   the later case, user inputs a function handle instead of the data
 %   matrix to exploit the matrix structure for fast matrix-vector
 %   multiplication.
 % 
 % USAGE:
-%   [U,S,V,flag] = SVT(A,'PARAM1',val1,'PARAM2',val2...)
-%   S = SVT(A,'PARAM1',val1,'PARAM2',val2...)
+%   [U,S,V,flag] = svt(A,'PARAM1',val1,'PARAM2',val2...)
+%   S = svt(A,'PARAM1',val1,'PARAM2',val2...)
 %
 % INPUT:
 %   A - m-by-n matrix or a function handle provided by user
@@ -35,33 +35,33 @@ function[U,S,V,flag] = svt(A,varargin)
 %
 % Examples:
 %  Singular value decomposition for the first 6 singular values. 
-%  [U,S,V] = SVT(A)
+%  [U,S,V] = svt(A)
 %
 %  Singular value decomposition for the first 15 singular values.
-%  [U,S,V] = SVT(A,'k',15) 
+%  [U,S,V] = svt(A,'k',15) 
 %
 %  Singular value thresholding, only compute the singular values exceeding
 %  0.1 by applying deflation method.
-%  [U,S,V] = SVT(A,'lambda',0.1) 
+%  [U,S,V] = svt(A,'lambda',0.1) 
 %
 %  Singular value thresholding, only compute the singular values exceeding
 %  0.1 by applying succession method.
-%  [U,S,V] = SVT(A,'lambda',0.1,'method','succession')
+%  [U,S,V] = svt(A,'lambda',0.1,'method','succession')
 %
 %  Singular value decomposition for first 15 singular values, input is a
 %  function handle, and the dimension of the original data matrix is
 %  1000-by-1000.
-%  [U,S,V] = SVT(Afun,'k',15,'m',1000,'n',1000)
+%  [U,S,V] = svt(Afun,'k',15,'m',1000,'n',1000)
 %
 %  Singular value thresholding, only compute the singular values exceeding
 %  0.1 by applying deflation method. Input is a function handle, and the
 %  dimension of the original data matrix is 1000-by-1000.
-%  [U,S,V] = SVT(Afun,'lambda',0.1,'m',1000,'n',1000)
+%  [U,S,V] = svt(Afun,'lambda',0.1,'m',1000,'n',1000)
 %
 %  Singular value thresholding, only compute the singular values exceeding
 %  0.1 by applying succession method. Input is a function handle, and the
 %  dimension of the original data matrix is 1000-by-1000.
-%  [U,S,V] = SVT(Afun,'lambda',0.1,'m',1000,'n',1000,'method','succession')
+%  [U,S,V] = svt(Afun,'lambda',0.1,'m',1000,'n',1000,'method','succession')
 %
 %  More details can be seen in demo_svt.m
 %
