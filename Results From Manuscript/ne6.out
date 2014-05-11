@@ -1,0 +1,370 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2013 The MathWorks, Inc.
+                    R2013a (8.1.0.604) 64-bit (glnxa64)
+                             February 15, 2013
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> The size of the matrix is 398 by 398
+The sparsity of the matrix is 9.816293e-01
+Compared with svt for not exploiting structure:
+lambda is: 2.217860e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.270955e-07
+The mean of run time of svt is 1.204225e+00
+The mean of run time of objective function is 1.420927e+00
+The se of run time of svt is 4.110389e-02
+The se of run time of objective function is 1.744062e-01
+
+>> >> >> >> The size of the matrix is 800 by 800
+The sparsity of the matrix is 9.927500e-01
+Compared with svt for not exploiting structure:
+lambda is: 2.820582e+01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.420033e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.420033e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 1.424211e-01
+The mean of run time of svt is 2.402644e+00
+The mean of run time of objective function is 2.865529e+00
+The se of run time of svt is 1.664453e-02
+The se of run time of objective function is 1.944290e-02
+
+>> >> >> >> The size of the matrix is 1090 by 1090
+The sparsity of the matrix is 9.970154e-01
+Compared with svt for not exploiting structure:
+lambda is: 1.115133e+06
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.419871e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.419871e-01
+Accuracy of svt: 5.419871e-01
+Accuracy of svt not exploiting structure: 5.419871e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.419871e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of svt not exploiting structure: 5.419871e-01
+Accuracy of svt: 5.419871e-01
+Accuracy of svt not exploiting structure: 5.343426e-01
+The mean of run time of svt is 5.115208e-01
+The mean of run time of objective function is 1.304430e+00
+The se of run time of svt is 2.122874e-03
+The se of run time of objective function is 5.071488e-03
+
+>> >> >> >> The size of the matrix is 4800 by 4800
+The sparsity of the matrix is 9.988056e-01
+Compared with svt for not exploiting structure:
+lambda is: 1.238225e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.564591e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.564591e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.564591e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 177] 
+Accuracy of svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 183] 
+Accuracy of svt not exploiting structure: 4.490707e-05
+The mean of run time of svt is 5.729023e+00
+The mean of run time of objective function is 8.998541e+01
+The se of run time of svt is 1.587949e-01
+The se of run time of objective function is 3.395932e+00
+
+>> >> >> >> The size of the matrix is 10000 by 10000
+The sparsity of the matrix is 9.995030e-01
+Compared with svt for not exploiting structure:
+lambda is: 2.199775e+04
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.171700e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.171700e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of svt not exploiting structure: 8.146520e-01
+The mean of run time of svt is 3.591065e+00
+The mean of run time of objective function is 1.040540e+02
+The se of run time of svt is 1.756916e-02
+The se of run time of objective function is 2.411134e-01
+
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 

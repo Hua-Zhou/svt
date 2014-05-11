@@ -1,0 +1,331 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2013 The MathWorks, Inc.
+                    R2013a (8.1.0.604) 64-bit (glnxa64)
+                             February 15, 2013
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> The size of the matrix is 398 by 398
+The sparsity of the matrix is 9.816293e-01
+Compared with stru-succession:
+lambda is: 2.217860e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.283000e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.270955e-07
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 231] 
+Accuracy of succession svt: 1.270955e-07
+The mean of run time of svt is 1.293596e+00
+The mean of run time of objective function is 2.095574e+00
+The se of run time of svt is 5.877543e-02
+The se of run time of objective function is 5.946786e-03
+
+>> >> >> >> The size of the matrix is 800 by 800
+The sparsity of the matrix is 9.927500e-01
+Compared with stru-succession:
+lambda is: 2.820582e+01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 1.424211e-01
+Accuracy of succession svt: 1.424211e-01
+The mean of run time of svt is 2.375769e+00
+The mean of run time of objective function is 1.386303e+00
+The se of run time of svt is 1.867764e-02
+The se of run time of objective function is 1.178961e-02
+
+>> >> >> >> The size of the matrix is 1090 by 1090
+The sparsity of the matrix is 9.970154e-01
+Compared with stru-succession:
+lambda is: 1.115133e+06
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.419871e-01
+Accuracy of svt: 5.419871e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.419871e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.419871e-01
+Accuracy of svt: 5.343426e-01
+Accuracy of succession svt: 5.343426e-01
+Accuracy of svt: 5.419871e-01
+Accuracy of succession svt: 5.343426e-01
+The mean of run time of svt is 5.083894e-01
+The mean of run time of objective function is 6.088495e-01
+The se of run time of svt is 2.189370e-03
+The se of run time of objective function is 1.098689e-03
+
+>> >> >> >> The size of the matrix is 4800 by 4800
+The sparsity of the matrix is 9.988056e-01
+Compared with stru-succession:
+lambda is: 1.238225e-01
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In Sim at 225] 
+Accuracy of svt: 4.490707e-05
+Accuracy of succession svt: 4.490707e-05
+The mean of run time of svt is 5.600844e+00
+The mean of run time of objective function is 4.402704e+00
+The se of run time of svt is 1.598442e-01
+The se of run time of objective function is 3.957316e-02
+
+>> >> >> >> The size of the matrix is 10000 by 10000
+The sparsity of the matrix is 9.995030e-01
+Compared with stru-succession:
+lambda is: 2.199775e+04
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.171700e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+Accuracy of svt: 8.146520e-01
+Accuracy of succession svt: 8.146520e-01
+The mean of run time of svt is 3.563644e+00
+The mean of run time of objective function is 6.369739e+00
+The se of run time of svt is 1.287494e-02
+The se of run time of objective function is 6.213664e-02
+
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
