@@ -5,9 +5,9 @@ argin.addRequired('p1');
 argin.addRequired('p2');
 argin.addParamValue('rep',5,@(x) x>0);
 argin.addParamValue('seed',2014,@(x) x>0);
-argin.addParamValue('rank',50,@(x) x>0);
+argin.addParamValue('rank',5,@(x) x>0);
 argin.addParamValue('prop',0.95,@(x) x>0 && x<1);
-argin.addParamValue('gridpts',50,@(x) x>0);
+argin.addParamValue('gridpts',20,@(x) x>0);
 argin.addParamValue('num',5,@(x) x>0);
 argin.parse(p1,p2,varargin{:});
 
@@ -36,7 +36,7 @@ maxlambda = stats.maxlambda;
 disp(maxlambda);
 
 % Solution path generated
-lambdas = exp(log(maxlambda)/gridpts*(gridpts:-1:1));
+lambdas = linspace(maxlambda*0.9,maxlambda/5,gridpts);
 
 %% svt exploiting matrix structure
 display('structure_svt');
@@ -55,6 +55,10 @@ for j = 1:rep
 
         if i >= 3
             display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
+        end
+        
+        if stats.rank >= 2*r;
+            break
         end
     end
     %profile viewer;
@@ -81,6 +85,11 @@ for j = 1:rep
         if i >= 3
             display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
         end
+        
+        if stats.rank >= 2*r;
+            break
+        end
+        
     end
     %profile viewer;
     records(2,j) = toc;
@@ -106,6 +115,11 @@ for j = 1:rep
         if i >= 3
             display(['Grid point ' num2str(i) ', rank=' num2str(stats.rank)]);
         end
+        
+        if stats.rank >= 2*r
+            break
+        end
+        
     end
     %profile viewer;
     records(3,j) = toc;

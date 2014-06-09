@@ -65,7 +65,7 @@ for iter=1:MaxIter
             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n); 
         else  % with warm start
             [U,s,V] = svt(@MAtimesVec,'m',p1,'n',p2,'lambda',lambda/n,...
-                'k',lens+3);
+                'k',lens+3,'method','succession');
         end
         s = diag(s)-lambda/n;    % shrinkage
         lens = length(s);
@@ -75,7 +75,7 @@ for iter=1:MaxIter
         if iter==1
             [U,s,V] = svt(M,'lambda',lambda/n); % call svt
         else   % with warm start
-            [U,s,V] = svt(M,'lambda',lambda/n,'k',lens+3); % call svt
+            [U,s,V] = svt(M,'lambda',lambda/n,'k',lens+3,'method','succession'); % call svt
         end
         s = diag(s)-lambda/n;    % shrinkage
         lens = length(s);
