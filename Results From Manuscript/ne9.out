@@ -13,689 +13,983 @@ ans =
 
         1000
 
-  110.7806
+   66.3617
 
 structure_svt
 **********Replication 1**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 2**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 3**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 4**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 5**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 6**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 7**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 8**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 9**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 10**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
+Grid point 3, rank=4
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=19
 svt
 **********Replication 1**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 2**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 3**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 4**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 5**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 6**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 7**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 8**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 9**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 10**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
+Grid point 3, rank=4
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 18, rank=5
+Grid point 19, rank=19
 full_svt
 **********Replication 1**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 2**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 3**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 4**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 5**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 6**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 7**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 8**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 9**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
-**********Replication 10**********
-Grid point 3, rank=25
-Grid point 4, rank=36
-Grid point 5, rank=45
-Grid point 6, rank=54
+Grid point 3, rank=4
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=19
 **********Summary**********
-The mean of run time of stru_svt is 4.915128e+01
-The mean of run time of non_stru_svt is 6.239524e+01
-The mean of run time of full svt is 4.872731e+01
-The se of run time of stru_svt is 4.893059e-02
-The se of run time of non_stru_svt is 4.012065e-02
-The se of run time of full svt is 3.004131e-02
-
->> >> >> >> >> 
-ans =
-
-        1500
-
-  140.2329
-
-structure_svt
-**********Replication 1**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 2**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 3**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 4**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 5**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 6**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 7**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 8**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 9**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 10**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-svt
-**********Replication 1**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 2**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 3**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 4**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 5**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 6**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 7**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 8**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 9**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 10**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-full_svt
-**********Replication 1**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 2**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 3**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 4**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 5**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 6**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 7**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 8**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 9**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Replication 10**********
-Grid point 3, rank=30
-Grid point 4, rank=43
-Grid point 5, rank=57
-**********Summary**********
-The mean of run time of stru_svt is 7.794689e+01
-The mean of run time of non_stru_svt is 1.527240e+02
-The mean of run time of full svt is 1.426438e+02
-The se of run time of stru_svt is 1.093733e-01
-The se of run time of non_stru_svt is 1.527117e-01
-The se of run time of full svt is 7.941711e-02
+The mean of run time of stru_svt is 1.761516e+02
+The mean of run time of non_stru_svt is 2.448210e+02
+The mean of run time of full svt is 2.565761e+02
+The se of run time of stru_svt is 0
+The se of run time of non_stru_svt is 0
+The se of run time of full svt is 0
 
 >> >> >> >> >> 
 ans =
 
         2000
 
-  169.3348
+  112.7907
 
 structure_svt
 **********Replication 1**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 2**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 3**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 4**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 5**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 6**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 7**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 8**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 9**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 10**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 65
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 182
+  In MatrixCompletion_MM at 65
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 20, rank=5
 svt
 **********Replication 1**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 2**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 3**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 4**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 5**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 6**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 7**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 8**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 9**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 10**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 76
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 182
+  In MatrixCompletion_MM at 76
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 20, rank=5
 full_svt
 **********Replication 1**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 2**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 3**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 4**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 5**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 6**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 7**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 8**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 9**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
-**********Replication 10**********
-Grid point 3, rank=33
-Grid point 4, rank=45
-Grid point 5, rank=54
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
 **********Summary**********
-The mean of run time of stru_svt is 1.297629e+02
-The mean of run time of non_stru_svt is 2.720476e+02
-The mean of run time of full svt is 3.732623e+02
-The se of run time of stru_svt is 1.689155e-01
-The se of run time of non_stru_svt is 4.855468e-01
-The se of run time of full svt is 2.283090e-01
+The mean of run time of stru_svt is 6.216646e+02
+The mean of run time of non_stru_svt is 2.142346e+03
+The mean of run time of full svt is 2.409370e+03
+The se of run time of stru_svt is 0
+The se of run time of non_stru_svt is 0
+The se of run time of full svt is 0
 
 >> >> >> >> >> 
 ans =
 
-        2500
+        3000
 
-  196.2627
+  162.1323
 
 structure_svt
 **********Replication 1**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 2**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 3**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 4**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 5**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 6**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 7**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 8**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 9**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 10**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
 svt
 **********Replication 1**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 2**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 3**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 4**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 5**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 6**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 7**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 8**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 9**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 10**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
 full_svt
 **********Replication 1**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 2**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 3**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 4**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 5**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 6**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 7**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 8**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 9**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
-**********Replication 10**********
-Grid point 3, rank=35
-Grid point 4, rank=47
-Grid point 5, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
 **********Summary**********
-The mean of run time of stru_svt is 1.684508e+02
-The mean of run time of non_stru_svt is 3.667393e+02
-The mean of run time of full svt is 7.697931e+02
-The se of run time of stru_svt is 1.591722e-01
-The se of run time of non_stru_svt is 3.766023e-01
-The se of run time of full svt is 1.508031e-01
+The mean of run time of stru_svt is 1.240688e+03
+The mean of run time of non_stru_svt is 4.158985e+03
+The mean of run time of full svt is 8.328066e+03
+The se of run time of stru_svt is 0
+The se of run time of non_stru_svt is 0
+The se of run time of full svt is 0
 
 >> >> >> >> >> 
 ans =
 
-        3500
+        4000
 
-  252.3001
+  214.0057
 
 structure_svt
 **********Replication 1**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 2**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 3**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 4**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 5**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 6**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 7**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 8**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 9**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 10**********
-Grid point 3, rank=40
-Grid point 4, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 15, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 16, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 17, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 18, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 19, rank=5
+Grid point 20, rank=5
 svt
 **********Replication 1**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 2**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 3**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 4**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 5**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 6**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 7**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 8**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 9**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 10**********
-Grid point 3, rank=40
-Grid point 4, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 15, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 16, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 17, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 18, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 19, rank=5
+Grid point 20, rank=5
 full_svt
 **********Replication 1**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 2**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 3**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 4**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 5**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 6**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 7**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 8**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 9**********
-Grid point 3, rank=40
-Grid point 4, rank=50
-**********Replication 10**********
-Grid point 3, rank=40
-Grid point 4, rank=50
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
 **********Summary**********
-The mean of run time of stru_svt is 2.242448e+02
-The mean of run time of non_stru_svt is 4.719651e+02
-The mean of run time of full svt is 1.709647e+03
-The se of run time of stru_svt is 1.902778e-01
-The se of run time of non_stru_svt is 5.310126e-01
-The se of run time of full svt is 3.028952e-01
+The mean of run time of stru_svt is 3.132900e+03
+The mean of run time of non_stru_svt is 1.051515e+04
+The mean of run time of full svt is 2.011424e+04
+The se of run time of stru_svt is 0
+The se of run time of non_stru_svt is 0
+The se of run time of full svt is 0
+
+>> >> >> >> >> 
+ans =
+
+        5000
+
+  268.5721
+
+structure_svt
+**********Replication 1**********
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 17, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 18, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 19, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 67
+  In Sim_MatrixCompletion at 54] 
+Grid point 20, rank=5
+svt
+**********Replication 1**********
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 17, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 18, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 19, rank=5
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+[Warning: eflag is 1, refresh with warm start.] 
+[> In svt at 176
+  In MatrixCompletion_MM at 78
+  In Sim_MatrixCompletion at 82] 
+Grid point 20, rank=5
+full_svt
+**********Replication 1**********
+Grid point 3, rank=5
+Grid point 4, rank=5
+Grid point 5, rank=5
+Grid point 6, rank=5
+Grid point 7, rank=5
+Grid point 8, rank=5
+Grid point 9, rank=5
+Grid point 10, rank=5
+Grid point 11, rank=5
+Grid point 12, rank=5
+Grid point 13, rank=5
+Grid point 14, rank=5
+Grid point 15, rank=5
+Grid point 16, rank=5
+Grid point 17, rank=5
+Grid point 18, rank=5
+Grid point 19, rank=5
+Grid point 20, rank=5
+**********Summary**********
+The mean of run time of stru_svt is 4.308308e+03
+The mean of run time of non_stru_svt is 1.478243e+04
+The mean of run time of full svt is 3.781637e+04
+The se of run time of stru_svt is 0
+The se of run time of non_stru_svt is 0
+The se of run time of full svt is 0
 
 >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
