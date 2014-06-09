@@ -174,10 +174,16 @@ while iter>0
     if ~(isnan(lambda)) % For thresholding
         if (eflag) % Avoid non convergence situation ruin the deflation
             warning('eflag is %d, refresh with warm start.',eflag);
-            k = length(e)-1; % Shift one to avoid another non convergence
+            k = max(length(e)-1,6); % Shift to avoid non convergence
             def = 0;
             [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n), ...
                 double(k), 'la',opts);
+            while(eflag)
+                warning('eflag is %d, refresh with warm start.',eflag);
+                k = max(k-1,1);
+                [eigvecs,eigvals,eflag] = eigs(@matvec,double(m+n), ...
+                double(k), 'la',opts);
+            end
             eigvals = diag(eigvals); 
         end
     end
