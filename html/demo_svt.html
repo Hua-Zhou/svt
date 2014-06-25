@@ -81,15 +81,15 @@ mat = data.mhd4800b;
 </pre><p>Top 25 singular values/vectors by svt</p><pre class="codeinput">tic;
 [u,s,v] = svt(mat,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.148469 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.116751 seconds.
 </pre><p>Top 25 singular values/vectors by Matlab svds</p><pre class="codeinput">tic;
 [su,ss,sv] = svds(mat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.120659 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.107908 seconds.
 </pre><p>Full svd</p><pre class="codeinput">tic;
 [fu,fs,fv] = svd(full(mat));
 toc;
-</pre><pre class="codeoutput">Elapsed time is 60.994544 seconds.
+</pre><pre class="codeoutput">Elapsed time is 61.233705 seconds.
 </pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
 </pre><pre class="codeoutput">   3.3306e-14
 
@@ -111,15 +111,15 @@ smat = mat + LR;          <span class="comment">% sparse + low rank</span>
 </pre><p>Top 25 singular values/vectors by svt. Function MAtimesVec is defined at end of this file.</p><pre class="codeinput">tic;
 [u,s,v] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'k'</span>,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 0.335328 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.348975 seconds.
 </pre><p>Top 25 singular values/vectors by Matlab's svds</p><pre class="codeinput">tic;
 [su,ss,sv] = svds(smat,25);
 toc;
-</pre><pre class="codeoutput">Elapsed time is 25.972191 seconds.
+</pre><pre class="codeoutput">Elapsed time is 26.174096 seconds.
 </pre><p>Full svd</p><pre class="codeinput">tic;
 [fu,fs,fv] = svd(full(smat));
 toc;
-</pre><pre class="codeoutput">Elapsed time is 46.431365 seconds.
+</pre><pre class="codeoutput">Elapsed time is 47.166358 seconds.
 </pre><p>Accuracy of solutions provided by svt</p><pre class="codeinput">disp(norm(fu(:,1:25)*fs(1:25,1:25)*fv(:,1:25)'- u*s*v',<span class="string">'fro'</span>));
 </pre><pre class="codeoutput">   2.9203e-09
 
@@ -142,7 +142,7 @@ mat = data.mhd4800b;
 [u,s,v] = svt(mat,<span class="string">'lambda'</span>,0.1);
 toc;
 display(size(s));
-</pre><pre class="codeoutput">Elapsed time is 0.915250 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.947435 seconds.
 
 ans =
 
@@ -152,7 +152,7 @@ ans =
 [~,ks,~] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'k'</span>,45);
 toc;
 display(size(ks));
-</pre><pre class="codeoutput">Elapsed time is 0.464071 seconds.
+</pre><pre class="codeoutput">Elapsed time is 0.445496 seconds.
 
 ans =
 
@@ -162,7 +162,7 @@ ans =
 [iu,is,iv] = svt(mat,<span class="string">'lambda'</span>,0.1,<span class="string">'method'</span>,<span class="string">'succession'</span>);
 toc;
 display(size(is));
-</pre><pre class="codeoutput">Elapsed time is 1.521131 seconds.
+</pre><pre class="codeoutput">Elapsed time is 1.690423 seconds.
 
 ans =
 
@@ -179,7 +179,7 @@ sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
 display(size(ss));
-</pre><pre class="codeoutput">Elapsed time is 60.634612 seconds.
+</pre><pre class="codeoutput">Elapsed time is 61.567353 seconds.
 
 ans =
 
@@ -208,7 +208,7 @@ smat = mat + LR;          <span class="comment">% sparse + low rank</span>
 toc;
 display(size(s));
 </pre><pre class="codeoutput">Warning: eflag is 1, refresh with warm start. 
-Elapsed time is 1.889165 seconds.
+Elapsed time is 2.102111 seconds.
 
 ans =
 
@@ -218,7 +218,7 @@ ans =
 [~,ks,~] = svt(@MAtimesVec,<span class="string">'m'</span>,m,<span class="string">'n'</span>,n,<span class="string">'lambda'</span>,0.2,<span class="string">'k'</span>,45);
 toc;
 display(size(ks));
-</pre><pre class="codeoutput">Elapsed time is 1.437949 seconds.
+</pre><pre class="codeoutput">Elapsed time is 1.512254 seconds.
 
 ans =
 
@@ -229,7 +229,7 @@ ans =
 <span class="string">'method'</span>,<span class="string">'succession'</span>);
 toc;
 display(size(is));
-</pre><pre class="codeoutput">Elapsed time is 9.789975 seconds.
+</pre><pre class="codeoutput">Elapsed time is 10.179397 seconds.
 
 ans =
 
@@ -246,7 +246,7 @@ sv = sv(:,1:i-1);
 ss = diag(dss);
 toc;
 display(size(ss));
-</pre><pre class="codeoutput">Elapsed time is 46.808097 seconds.
+</pre><pre class="codeoutput">Elapsed time is 47.114149 seconds.
 
 ans =
 
