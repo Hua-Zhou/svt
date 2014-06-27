@@ -30,7 +30,7 @@ mv svt_function_0.0.1 svt
 ```
 4. Add the *svt* folder to MATLAB search path. Start MATLAB, cd to the *svt* directory, and execute the following commands  
 `addpath(pwd)	%<-- Add the toolbox to the MATLAB path`  
-`save path		%<-- Save for future MATLAB sessions`
+`savepath		%<-- Save for future MATLAB sessions`
 5. Go through following tutorials for the usage. For help of individual functions, type `?` followed by the function name in MATLAB.
 
 ### Tutorial
