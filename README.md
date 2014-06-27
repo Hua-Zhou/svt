@@ -15,18 +15,22 @@ The code is tested on MATLAB R2013a, but should work on other versions of MATLAB
 
 ### Download
 
-[svt_0.0.1.zip](./svt_0.0.1.zip) 
+[ZIP File](https://github.com/Hua-Zhou/svt/zipball/master) or [TAR Ball](https://github.com/Hua-Zhou/svt/tarball/master)
 
 ### Installation
 
-1. Download the zip package.
-2. Extract the zip file.  
+1. Download the zip or tar package.
+2. Extract the zip or tar package.  
 ```
-unzip svt_0.0.1.zip
+unzip PackageName.zip
 ```
-3. Rename the folder from *svt_0.0.1* to *svt*.  
+or
 ```
-mv svt_0.0.1 svt
+tar xvzf PackageName.tar.gz
+```
+3. Rename the folder from *PackageName* to *svt*.  
+```
+mv PackageName svt
 ```
 4. Add the *svt* folder to MATLAB search path. Start MATLAB, cd to the *svt* directory, and execute the following commands  
 `addpath(pwd)	%<-- Add the toolbox to the MATLAB path`  
