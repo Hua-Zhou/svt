@@ -15,18 +15,18 @@ The code is tested on MATLAB R2013a, but should work on other versions of MATLAB
 
 ### Download
 
-[svt_function_0.0.1.zip](./svt_function_0.0.1.zip) 
+[svt_0.0.1.zip](./svt_0.0.1.zip) 
 
 ### Installation
 
 1. Download the zip package.
 2. Extract the zip file.  
 ```
-unzip svt_function_0.0.1.zip
+unzip svt_0.0.1.zip
 ```
-3. Rename the folder from *svt_function_0.0.1* to *svt*.  
+3. Rename the folder from *svt_0.0.1* to *svt*.  
 ```
-mv svt_function_0.0.1 svt
+mv svt_0.0.1 svt
 ```
 4. Add the *svt* folder to MATLAB search path. Start MATLAB, cd to the *svt* directory, and execute the following commands  
 `addpath(pwd)	%<-- Add the toolbox to the MATLAB path`  
