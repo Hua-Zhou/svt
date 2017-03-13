@@ -51,4 +51,4 @@ C Li and H Zhou (2014) svt: Singular Value Thresholding in MATLAB. [arXiv](to be
 
 ### Contacts
 
-Cai Li <cli9@ncsu.edu> | Hua Zhou <hua_zhou@ncsu.edu> 
+Cai Li <cli9@ncsu.edu> | Hua Zhou <huazhou@ucla.edu> 
