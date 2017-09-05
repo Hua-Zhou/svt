@@ -5,9 +5,9 @@ title: svt
 
 ## svt function for MATLAB
 
-`svt` is a MATLAB wrapper function for singular value thresholding. 
+`svt` is a MATLAB wrapper function for singular value thresholding.
 
-The function is developed by [Cai Li](http://www4.ncsu.edu/~cli9/) and [Hua Zhou](http://hua-zhou.github.io). 
+The function is developed by [Cai Li](http://www4.ncsu.edu/~cli9/) and [Hua Zhou](http://hua-zhou.github.io).
 
 ### Compatibility
 
@@ -15,7 +15,7 @@ The code is tested on MATLAB R2013a, but should work on other versions of MATLAB
 
 ### Download
 
-[svt_function_0.0.1.zip](./svt_function_0.0.1.zip) 
+[svt_function_0.0.1.zip](./svt_function_0.0.1.zip)
 
 ### Installation
 
@@ -35,7 +35,7 @@ mv svt_function_0.0.1 svt
 
 ### Tutorial
 
-* [Singular value thresholding](./html/demo_svt.html)
+* [Singular value thresholding](http://hua-zhou.github.io/svt/html/demo_svt.html)
 
 ### Licensing
 
@@ -51,4 +51,4 @@ C Li and H Zhou (2014) svt: Singular Value Thresholding in MATLAB. [arXiv](to be
 
 ### Contacts
 
-Cai Li <cli9@ncsu.edu> | Hua Zhou <hua_zhou@ncsu.edu> 
+Cai Li <cli9@ncsu.edu> | Hua Zhou <hua_zhou@ncsu.edu>
