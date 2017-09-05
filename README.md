@@ -15,11 +15,7 @@ The code is tested on MATLAB R2013a, but should work on other versions of MATLAB
 
 ### Download
 
-<<<<<<< HEAD
-[svt_function_0.0.1.zip](./svt_function_0.0.1.zip)
-=======
 [ZIP File](https://github.com/Hua-Zhou/svt/zipball/master) or [TAR Ball](https://github.com/Hua-Zhou/svt/tarball/master)
->>>>>>> b7ad93feaa8c7d67055376bb0cb09c286b4177af
 
 ### Installation
 
@@ -59,8 +55,4 @@ C Li and H Zhou (2017) svt: Singular Value Thresholding in MATLAB. [Journal of S
 
 ### Contacts
 
-<<<<<<< HEAD
 Cai Li <cli9@ncsu.edu> | Hua Zhou <hua_zhou@ncsu.edu>
-=======
-Cai Li <cli9@ncsu.edu> | Hua Zhou <huazhou@ucla.edu>
->>>>>>> b7ad93feaa8c7d67055376bb0cb09c286b4177af
