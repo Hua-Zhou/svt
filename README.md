@@ -15,18 +15,26 @@ The code is tested on MATLAB R2013a, but should work on other versions of MATLAB
 
 ### Download
 
+<<<<<<< HEAD
 [svt_function_0.0.1.zip](./svt_function_0.0.1.zip)
+=======
+[ZIP File](https://github.com/Hua-Zhou/svt/zipball/master) or [TAR Ball](https://github.com/Hua-Zhou/svt/tarball/master)
+>>>>>>> b7ad93feaa8c7d67055376bb0cb09c286b4177af
 
 ### Installation
 
-1. Download the zip package.
-2. Extract the zip file.  
+1. Download the zip or tar package.
+2. Extract the zip or tar package.  
 ```
-unzip svt_function_0.0.1.zip
+unzip PackageName.zip
 ```
-3. Rename the folder from *svt_function_0.0.1* to *svt*.  
+or
 ```
-mv svt_function_0.0.1 svt
+tar xvzf PackageName.tar.gz
+```
+3. Rename the folder from *PackageName* to *svt*.  
+```
+mv PackageName svt
 ```
 4. Add the *svt* folder to MATLAB search path. Start MATLAB, cd to the *svt* directory, and execute the following commands  
 `addpath(pwd)	%<-- Add the toolbox to the MATLAB path`  
@@ -47,8 +55,12 @@ If you use this function in any way, please cite the software itself along with 
 
 * Software reference  
 C Li and H Zhou. MATLAB svt function Version 0.0.1. Available online, July 2014.  
-C Li and H Zhou (2014) svt: Singular Value Thresholding in MATLAB. [arXiv](to be posted soon)
+C Li and H Zhou (2017) svt: Singular Value Thresholding in MATLAB. [Journal of Statistical Software](in press)
 
 ### Contacts
 
+<<<<<<< HEAD
 Cai Li <cli9@ncsu.edu> | Hua Zhou <hua_zhou@ncsu.edu>
+=======
+Cai Li <cli9@ncsu.edu> | Hua Zhou <huazhou@ucla.edu>
+>>>>>>> b7ad93feaa8c7d67055376bb0cb09c286b4177af
